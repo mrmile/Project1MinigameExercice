@@ -348,23 +348,27 @@ void Draw()
 
 	// Draw background and scroll
 	state.scroll += SCROLL_SPEED;
-	if (state.scroll >= 3500)	state.scroll = 0;
+	if (state.scroll >= 3701)	state.scroll = 0;
 
 	// Draw background texture (two times for scrolling effect)
 	// NOTE: rec rectangle is being reused for next draws
 	SDL_Rect rec = { -state.scroll, 0, 3701, SCREEN_HEIGHT };
+
 	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
-	rec.x += state.background_width;
+	rec.x +=3701;
 	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
 
 	// Draw ship rectangle
 	//DrawRectangle(state.ship_x, state.ship_y, 250, 100, { 255, 0, 0, 255 });
+	SDL_Rect rec2 = { 8, 476, 18, 18 };
 
 	// Draw ship texture
-	rec.x = state.ship_x; rec.y = state.ship_y; rec.w = 64; rec.h = 64;
-	SDL_RenderCopy(state.renderer, state.ship, NULL, &rec);
+	rec.x = state.ship_x; rec.y = state.ship_y; rec.w = 60; rec.h = 60;
+	
+	SDL_RenderCopy(state.renderer, state.ship, &rec2, &rec);
 
 	// L2: DONE 9: Draw active shots
+	rec2.x = 212; rec2.y = 480; rec2.w = 20; rec2.h = 16;
 	rec.w = 64; rec.h = 64;
 	for (int i = 0; i < MAX_SHIP_SHOTS; ++i)
 	{
@@ -372,7 +376,7 @@ void Draw()
 		{
 			//DrawRectangle(state.shots[i].x, state.shots[i].y, 50, 20, { 0, 250, 0, 255 });
 			rec.x = state.shots[i].x; rec.y = state.shots[i].y;
-			SDL_RenderCopy(state.renderer, state.shot, NULL, &rec);
+			SDL_RenderCopy(state.renderer, state.shot, &rec2, &rec);
 		}
 	}
 
