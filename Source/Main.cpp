@@ -154,7 +154,7 @@ void Start()
 	}
 
 	// L4: TODO 2: Start playing loaded music
-	state.music = Mix_LoadMUS("Assets/cave.ogg");
+	state.music = Mix_LoadMUS("Assets/castle.ogg");
 	state.fx_shoot = Mix_LoadWAV("Assets/laser.wav");
 	Mix_PlayMusic(state.music, -1);
 	
