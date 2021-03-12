@@ -352,7 +352,7 @@ void Draw()
 
 	// Draw background texture (two times for scrolling effect)
 	// NOTE: rec rectangle is being reused for next draws
-	SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
+	SDL_Rect rec = { -state.scroll, 0, 3700, SCREEN_HEIGHT };
 	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
 	rec.x += state.background_width;
 	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
