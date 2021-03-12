@@ -18,10 +18,10 @@
 // WARNING: Not all compilers support this option and it couples 
 // source code with build system, it's recommended to keep both 
 // separated, in case of multiple build configurations
-//#pragma comment(lib, "SDL/lib/x86/SDL2.lib")
-//#pragma comment(lib, "SDL/lib/x86/SDL2main.lib")
-//#pragma comment(lib, "SDL_image/lib/x86/SDL2_image.lib")
-//#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
+#pragma comment(lib, "SDL/lib/x86/SDL2.lib")
+#pragma comment(lib, "SDL/lib/x86/SDL2main.lib")
+#pragma comment(lib, "SDL_image/lib/x86/SDL2_image.lib")
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 // -------------------------------------------------------------------------
 // Defines, Types and Globals
