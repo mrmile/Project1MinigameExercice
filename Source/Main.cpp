@@ -140,8 +140,8 @@ void Start()
 	// Init image system and load textures
 	IMG_Init(IMG_INIT_PNG);
 	state.background = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
-	state.ship = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/ship.png"));
-	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/shot.png"));
+	state.ship = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	SDL_QueryTexture(state.background, NULL, NULL, &state.background_width, NULL);
 
 	// L4: TODO 1: Init audio system and load music/fx
@@ -348,11 +348,11 @@ void Draw()
 
 	// Draw background and scroll
 	state.scroll += SCROLL_SPEED;
-	if (state.scroll >= state.background_width)	state.scroll = 0;
+	if (state.scroll >= 3500)	state.scroll = 0;
 
 	// Draw background texture (two times for scrolling effect)
 	// NOTE: rec rectangle is being reused for next draws
-	SDL_Rect rec = { -state.scroll, 0, 3700, SCREEN_HEIGHT };
+	SDL_Rect rec = { -state.scroll, 0, 3701, SCREEN_HEIGHT };
 	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
 	rec.x += state.background_width;
 	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
