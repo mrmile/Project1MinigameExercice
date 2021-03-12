@@ -18,10 +18,10 @@
 // WARNING: Not all compilers support this option and it couples 
 // source code with build system, it's recommended to keep both 
 // separated, in case of multiple build configurations
-//#pragma comment(lib, "SDL/lib/x86/SDL2.lib")
-//#pragma comment(lib, "SDL/lib/x86/SDL2main.lib")
-//#pragma comment(lib, "SDL_image/lib/x86/SDL2_image.lib")
-//#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
+#pragma comment(lib, "SDL/lib/x86/SDL2.lib")
+#pragma comment(lib, "SDL/lib/x86/SDL2main.lib")
+#pragma comment(lib, "SDL_image/lib/x86/SDL2_image.lib")
+#pragma comment( lib, "SDL_mixer/libx86/SDL2_mixer.lib" )
 
 // -------------------------------------------------------------------------
 // Defines, Types and Globals
@@ -117,7 +117,7 @@ void Start()
 	//if (SDL_InitSubSystem(SDL_INIT_EVENTS) < 0) printf("SDL_EVENTS could not be initialized! SDL_Error: %s\n", SDL_GetError());
 
 	// Init window
-	state.window = SDL_CreateWindow("Super Awesome Game", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+	state.window = SDL_CreateWindow("MiniGameExercise(DeltaSquad)", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
 	state.surface = SDL_GetWindowSurface(state.window);
 
 	// Init renderer
