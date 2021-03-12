@@ -33,10 +33,10 @@
 #define MAX_MOUSE_BUTTONS	   5
 #define JOYSTICK_DEAD_ZONE  8000
 
-#define SHIP_SPEED			   8
+#define SHIP_SPEED			  12
 #define MAX_SHIP_SHOTS		  32
-#define SHOT_SPEED			  12
-#define SCROLL_SPEED		   5
+#define SHOT_SPEED			  20
+#define SCROLL_SPEED		  10
 
 enum WindowEvent
 {
@@ -63,6 +63,7 @@ struct Projectile
 // Global context to store our game state data
 struct GlobalState
 {
+	int GeneralFPS;
 	// Window and renderer
 	SDL_Window* window;
 	SDL_Surface* surface;
@@ -89,14 +90,29 @@ struct GlobalState
 	Mix_Chunk* fx_shoot;
 
 	// Game elements
-	int ship_x;
-	int ship_y;
+	typedef struct Player
+	{
+		int ship_x;
+		int ship_y;
+
+		int frame_x;
+		int frame_y;
+		int frame_w;
+		int frame_h;
+
+		int PlayerFPS;
+	} Player;
+
+	Player bullet;
+
 	Projectile shots[MAX_SHIP_SHOTS];
 	int last_shot;
+
 	int scroll;
 };
 
 // Global game state variable
+
 GlobalState state;
 
 // Functions Declarations
@@ -160,8 +176,8 @@ void Start()
 	
 
 	// Init game variables
-	state.ship_x = 100;
-	state.ship_y = SCREEN_HEIGHT / 2;
+	state.bullet.ship_x = 100;
+	state.bullet.ship_y = SCREEN_HEIGHT / 2;
 	state.last_shot = 0;
 	state.scroll = 0;
 }
@@ -306,12 +322,40 @@ bool CheckInput()
 // ----------------------------------------------------------------
 void MoveStuff()
 {
+	state.bullet.PlayerFPS++;
 	// L2: DONE 7: Move the ship with arrow keys
-	if (state.keyboard[SDL_SCANCODE_UP] == KEY_REPEAT) state.ship_y -= SHIP_SPEED;
-	else if (state.keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT) state.ship_y += SHIP_SPEED;
+	if (state.bullet.PlayerFPS <= 5)
+	{
+		state.bullet.frame_x = 8;
+		state.bullet.frame_y = 476;
+		state.bullet.frame_w = 18;
+		state.bullet.frame_h = 18;
+	}
+	else if (state.bullet.PlayerFPS > 5 && state.bullet.PlayerFPS <= 10)
+	{
+		state.bullet.frame_x = 32;
+		state.bullet.frame_y = 476;
+		state.bullet.frame_w = 18;
+		state.bullet.frame_h = 18;
+	}
+	else if (state.bullet.PlayerFPS > 10)
+	{
+		state.bullet.frame_x = 56;
+		state.bullet.frame_y = 476;
+		state.bullet.frame_w = 18;
+		state.bullet.frame_h = 18;
+	}
 
-	if (state.keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT) state.ship_x -= SHIP_SPEED;
-	else if (state.keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT) state.ship_x += SHIP_SPEED;
+	if (state.keyboard[SDL_SCANCODE_UP] == KEY_REPEAT) state.bullet.ship_y -= SHIP_SPEED;
+	else if (state.keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT) state.bullet.ship_y += SHIP_SPEED;
+
+	if (state.keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT)
+	{
+		state.bullet.PlayerFPS = 0;
+		
+		state.bullet.ship_x -= SHIP_SPEED;
+	} 	
+	else if (state.keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT) state.bullet.ship_x += SHIP_SPEED;
 
 	// L2: DONE 8: Initialize a new shot when SPACE key is pressed
 	if (state.keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
@@ -320,8 +364,8 @@ void MoveStuff()
 		if (state.last_shot == MAX_SHIP_SHOTS) state.last_shot = 0;
 
 		state.shots[state.last_shot].alive = true;
-		state.shots[state.last_shot].x = state.ship_x + 35;
-		state.shots[state.last_shot].y = state.ship_y - 3;
+		state.shots[state.last_shot].x = state.bullet.ship_x + 35;
+		state.shots[state.last_shot].y = state.bullet.ship_y - 3;
 		state.last_shot++;
 
 		// L4: TODO 4: Play sound fx_shoot
@@ -360,10 +404,10 @@ void Draw()
 
 	// Draw ship rectangle
 	//DrawRectangle(state.ship_x, state.ship_y, 250, 100, { 255, 0, 0, 255 });
-	SDL_Rect rec2 = { 8, 476, 18, 18 };
-
+	
 	// Draw ship texture
-	rec.x = state.ship_x; rec.y = state.ship_y; rec.w = 60; rec.h = 60;
+	SDL_Rect rec2 = { state.bullet.frame_x, state.bullet.frame_y, state.bullet.frame_w, state.bullet.frame_h };
+	rec.x = state.bullet.ship_x; rec.y = state.bullet.ship_y; rec.w = 60; rec.h = 60;
 	
 	SDL_RenderCopy(state.renderer, state.ship, &rec2, &rec);
 
@@ -393,6 +437,8 @@ int main(int argc, char* argv[])
 
 	while (CheckInput())
 	{
+		state.GeneralFPS++;
+
 		MoveStuff();
 
 		Draw();
