@@ -346,16 +346,16 @@ void MoveStuff()
 		state.bullet.frame_h = 18;
 	}
 
-	if (state.keyboard[SDL_SCANCODE_UP] == KEY_REPEAT) state.bullet.ship_y -= SHIP_SPEED;
-	else if (state.keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT) state.bullet.ship_y += SHIP_SPEED;
+	if (state.keyboard[SDL_SCANCODE_UP] == KEY_REPEAT && state.bullet.ship_y > 0) state.bullet.ship_y -= SHIP_SPEED;
+	else if (state.keyboard[SDL_SCANCODE_DOWN] == KEY_REPEAT && state.bullet.ship_y < (SCREEN_HEIGHT - 60)) state.bullet.ship_y += SHIP_SPEED;
 
-	if (state.keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT)
+	if (state.keyboard[SDL_SCANCODE_LEFT] == KEY_REPEAT && state.bullet.ship_x > 0)
 	{
 		state.bullet.PlayerFPS = 0;
 		
 		state.bullet.ship_x -= SHIP_SPEED;
 	} 	
-	else if (state.keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT) state.bullet.ship_x += SHIP_SPEED;
+	else if (state.keyboard[SDL_SCANCODE_RIGHT] == KEY_REPEAT && state.bullet.ship_x < (SCREEN_WIDTH - 60)) state.bullet.ship_x += SHIP_SPEED;
 
 	// L2: DONE 8: Initialize a new shot when SPACE key is pressed
 	if (state.keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
