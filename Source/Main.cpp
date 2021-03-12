@@ -139,7 +139,7 @@ void Start()
 
 	// Init image system and load textures
 	IMG_Init(IMG_INIT_PNG);
-	state.background = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/background.png"));
+	state.background = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/cave.png"));
 	state.ship = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/ship.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/shot.png"));
 	SDL_QueryTexture(state.background, NULL, NULL, &state.background_width, NULL);
@@ -154,7 +154,7 @@ void Start()
 	}
 
 	// L4: TODO 2: Start playing loaded music
-	state.music = Mix_LoadMUS("Assets/music.ogg");
+	state.music = Mix_LoadMUS("Assets/cave.ogg");
 	state.fx_shoot = Mix_LoadWAV("Assets/laser.wav");
 	Mix_PlayMusic(state.music, -1);
 	
