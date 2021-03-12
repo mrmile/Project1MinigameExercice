@@ -139,7 +139,7 @@ void Start()
 
 	// Init image system and load textures
 	IMG_Init(IMG_INIT_PNG);
-	state.background = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
+	state.background = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/background.png"));
 	state.ship = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/ship.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/shot.png"));
 	SDL_QueryTexture(state.background, NULL, NULL, &state.background_width, NULL);
