@@ -47,10 +47,39 @@ void Start()
 
 	// Init image system and load textures
 	IMG_Init(IMG_INIT_PNG);
-	state.background = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
-	state.ship = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.background1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/clouds.png"));
+	state.background2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/cave.png"));
+	state.background3 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
+
+	state.player = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
-	SDL_QueryTexture(state.background, NULL, NULL, &state.background_width, NULL);
+	state.boss = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/BossSpriteSheet.png"));
+
+	state.fuzzBall = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.DownRightArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.DownLeftArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.UpRightArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.UpLeftArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.RedTurtle = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.GreenTurtle1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.GreenTurtle1and2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.BrownGoomba = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.BlueGoomba = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.GreyGoomba = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.BuzzyBeetle = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.HammerBrother = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+
+	state.CheckPoint = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.GoalPoint = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.FireWork = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+
+	state.Coin = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.QuestionBlock = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.BrickBlock = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+
+	SDL_QueryTexture(state.background1, NULL, NULL, &state.background_width, NULL);
+	SDL_QueryTexture(state.background2, NULL, NULL, &state.background_width, NULL);
+	SDL_QueryTexture(state.background3, NULL, NULL, &state.background_width, NULL);
 
 	// L4: TODO 1: Init audio system and load music/fx
 	Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
@@ -62,9 +91,25 @@ void Start()
 	}
 
 	// L4: TODO 2: Start playing loaded music
-	state.music = Mix_LoadMUS("Assets/castle.ogg");
+	state.titleScreen = Mix_LoadMUS("Assets/titleScreen.ogg");
+	state.levelWin = Mix_LoadMUS("Assets/levelWin.ogg");
+	state.overworld = Mix_LoadMUS("Assets/overworld.ogg");
+	state.cave = Mix_LoadMUS("Assets/cave.ogg");
+	state.castle = Mix_LoadMUS("Assets/castle.ogg");
+
 	state.fx_shoot = Mix_LoadWAV("Assets/laser.wav");
-	Mix_PlayMusic(state.music, -1);
+	state.bossAttack = Mix_LoadWAV("Assets/bossAttack.wav");
+	state.breakBlock = Mix_LoadWAV("Assets/breakBlock.wav");
+	state.bulletShot = Mix_LoadWAV("Assets/bulletShot.wav");
+	state.checkPointAndGoal = Mix_LoadWAV("Assets/checkpointAndFinal.wav");
+	state.clap = Mix_LoadWAV("Assets/clap.wav");
+	state.coin = Mix_LoadWAV("Assets/coin.wav");
+	state.defeat = Mix_LoadWAV("Assets/defeat.wav");
+	state.kick = Mix_LoadWAV("Assets/Kick.wav");
+	state.playerExplode = Mix_LoadWAV("Assets/playerExplode.wav");
+	state.stomp = Mix_LoadWAV("Assets/stomp.wav");
+
+	Mix_PlayMusic(state.castle, -1);
 
 
 	// Init game variables
@@ -78,11 +123,11 @@ void Start()
 void Finish()
 {
 	// L4: TODO 3: Unload music/fx and deinitialize audio system
-	Mix_FreeMusic(state.music);
+	Mix_FreeMusic(state.castle);
 
 	// Unload textures and deinitialize image system
-	SDL_DestroyTexture(state.background);
-	SDL_DestroyTexture(state.ship);
+	SDL_DestroyTexture(state.background3);
+	SDL_DestroyTexture(state.player);
 	IMG_Quit();
 
 	// L2: DONE 3: Close game controller

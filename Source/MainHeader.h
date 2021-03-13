@@ -103,14 +103,57 @@ struct GlobalState
 	bool window_events[WE_COUNT];
 
 	// Texture variables
-	SDL_Texture* background;
-	SDL_Texture* ship;
+	SDL_Texture* background1;
+	SDL_Texture* background2;
+	SDL_Texture* background3;
+
+	SDL_Texture* player;
+	SDL_Texture* boss;
 	SDL_Texture* shot;
+
+	SDL_Texture* fuzzBall;
+	SDL_Texture* DownRightArrow;
+	SDL_Texture* DownLeftArrow;
+	SDL_Texture* UpRightArrow;
+	SDL_Texture* UpLeftArrow;
+	SDL_Texture* RedTurtle;
+	SDL_Texture* GreenTurtle1;
+	SDL_Texture* GreenTurtle1and2;
+	SDL_Texture* BrownGoomba;
+	SDL_Texture* BlueGoomba;
+	SDL_Texture* GreyGoomba;
+	SDL_Texture* BuzzyBeetle;
+	SDL_Texture* HammerBrother;
+
+	SDL_Texture* CheckPoint;
+	SDL_Texture* GoalPoint;
+	SDL_Texture* FireWork;
+
+	SDL_Texture* Coin;
+	SDL_Texture* QuestionBlock;
+	SDL_Texture* BrickBlock;
+
 	int background_width;
 
 	// Audio variables
-	Mix_Music* music;
+	Mix_Music* titleScreen;
+	Mix_Music* levelWin;
+	Mix_Music* overworld;
+	Mix_Music* cave;
+	Mix_Music* castle;
+
 	Mix_Chunk* fx_shoot;
+	Mix_Chunk* bossAttack;
+	Mix_Chunk* breakBlock;
+	Mix_Chunk* bulletShot;
+	Mix_Chunk* checkPointAndGoal;
+	Mix_Chunk* clap;
+	Mix_Chunk* coin;
+	Mix_Chunk* defeat;
+	Mix_Chunk* fireworks;
+	Mix_Chunk* kick;
+	Mix_Chunk* playerExplode;
+	Mix_Chunk* stomp;
 
 	// Game elements
 
