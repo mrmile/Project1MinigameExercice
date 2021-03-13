@@ -13,7 +13,7 @@ void Level_1MechanicsDefinition(GlobalState& state)
 
 void Level_1DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
-	state.background_width = 6544;
+	state.background_width = 7825;
 	// Draw background and scroll
 	state.scroll += SCROLL_SPEED;
 	if (state.scroll >= state.background_width)	state.scroll = 0;

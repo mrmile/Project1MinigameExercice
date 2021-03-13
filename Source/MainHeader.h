@@ -69,6 +69,9 @@ struct GlobalState
 {
 	int GeneralFPS;
 
+	int coordinateX;
+	int coordinateY;
+
 	// Game Parts
 	enum GameScene
 	{
@@ -94,6 +97,7 @@ struct GlobalState
 	SDL_Surface* surface;
 	SDL_Renderer* renderer;
 	TTF_Font* font;
+	SDL_Surface* message;
 	SDL_Color white = { 255,255,255 };
 
 	// Input events
@@ -166,12 +170,15 @@ struct GlobalState
 	{
 		int boss_x;
 		int boss_y;
+		int boss_w;
+		int boss_h;
 
-		int frame_x;
-		int frame_y;
-		int frame_w;
-		int frame_h;
+		int bossFrame_x;
+		int bossFrame_y;
+		int bossFrame_w;
+		int bossFrame_h;
 
+		int bossLife;
 		int BossFPS;
 	} Boss;
 
@@ -185,10 +192,10 @@ struct GlobalState
 		int player_x;
 		int player_y;
 
-		int frame_x;
-		int frame_y;
-		int frame_w;
-		int frame_h;
+		int playerFrame_x;
+		int playerFrame_y;
+		int playerFrame_w;
+		int playerFrame_h;
 
 		int PlayerFPS;
 	} Player;

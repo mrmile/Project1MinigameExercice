@@ -11,24 +11,24 @@ void PlayerMechanicsDefinition(GlobalState &state)
 	// L2: DONE 7: Move the ship with arrow keys
 	if (state.bullet.PlayerFPS <= 5)
 	{
-		state.bullet.frame_x = 8;
-		state.bullet.frame_y = 476;
-		state.bullet.frame_w = 18;
-		state.bullet.frame_h = 18;
+		state.bullet.playerFrame_x = 8;
+		state.bullet.playerFrame_y = 476;
+		state.bullet.playerFrame_w = 18;
+		state.bullet.playerFrame_h = 18;
 	}
 	else if (state.bullet.PlayerFPS > 5 && state.bullet.PlayerFPS <= 10)
 	{
-		state.bullet.frame_x = 32;
-		state.bullet.frame_y = 476;
-		state.bullet.frame_w = 18;
-		state.bullet.frame_h = 18;
+		state.bullet.playerFrame_x = 32;
+		state.bullet.playerFrame_y = 476;
+		state.bullet.playerFrame_w = 18;
+		state.bullet.playerFrame_h = 18;
 	}
 	else if (state.bullet.PlayerFPS > 10)
 	{
-		state.bullet.frame_x = 56;
-		state.bullet.frame_y = 476;
-		state.bullet.frame_w = 18;
-		state.bullet.frame_h = 18;
+		state.bullet.playerFrame_x = 56;
+		state.bullet.playerFrame_y = 476;
+		state.bullet.playerFrame_w = 18;
+		state.bullet.playerFrame_h = 18;
 	}
 
 	if (state.keyboard[SDL_SCANCODE_UP] == KEY_REPEAT && state.bullet.player_y > 0) state.bullet.player_y -= SHIP_SPEED;

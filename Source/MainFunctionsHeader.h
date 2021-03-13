@@ -397,7 +397,7 @@ void Draw()
 	// Draw background texture (two times for scrolling effect)
 	// NOTE: rec rectangle is being reused for next draws
 	SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
-	SDL_Rect rec2 = { state.bullet.frame_x, state.bullet.frame_y, state.bullet.frame_w, state.bullet.frame_h };
+	SDL_Rect rec2 = { state.bullet.playerFrame_x, state.bullet.playerFrame_y, state.bullet.playerFrame_w, state.bullet.playerFrame_h };
 
 	
 

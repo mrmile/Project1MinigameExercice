@@ -4,11 +4,12 @@
 #include "MainHeader.h"
 #include "MainFunctionsHeader.h"
 #include "Player.h"
-#include"Entity.h"
+#include "Entity.h"
+#include "Boss.h"
 
 void Level_3MechanicsDefinition(GlobalState& state)
 {
-	
+	BossMechanicsDefinition(state);
 }
 
 void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
@@ -23,6 +24,7 @@ void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 	SDL_RenderCopy(state.renderer, state.background3, NULL, &rec);
 	rec.x += state.background_width;
 	SDL_RenderCopy(state.renderer, state.background3, NULL, &rec);
-	SDL_Surface *message = TTF_RenderText_Solid(state.font, "This is a test", state.white);
-	SDL_BlitSurface(message, NULL, state.surface, NULL);
+	state.message = TTF_RenderText_Solid(state.font, "This is a test", state.white);
+	
+	BossDrawDefinition(state, rec, rec2);
 }
