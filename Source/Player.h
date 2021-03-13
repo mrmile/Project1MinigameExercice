@@ -77,7 +77,7 @@ void DrawPlayerDefinition(GlobalState &state, SDL_Rect rec, SDL_Rect rec2)
 	
 	rec.x = state.bullet.player_x; rec.y = state.bullet.player_y; rec.w = 60; rec.h = 60;
 
-	SDL_RenderCopy(state.renderer, state.ship, &rec2, &rec);
+	SDL_RenderCopy(state.renderer, state.player, &rec2, &rec);
 
 	// L2: DONE 9: Draw active shots
 	rec2.x = 212; rec2.y = 480; rec2.w = 20; rec2.h = 16;
