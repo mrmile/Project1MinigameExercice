@@ -90,6 +90,16 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LevelEnd.h" />
+    <ClInclude Include="Level_1.h" />
+    <ClInclude Include="Level_2.h" />
+    <ClInclude Include="Level_3.h" />
+    <ClInclude Include="MainFunctionsHeader.h" />
+    <ClInclude Include="MainHeader.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="TitleScreen.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
