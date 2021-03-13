@@ -15,6 +15,7 @@
 #include "SDL/include/SDL.h"				// Required for SDL base systems functionality
 #include "SDL_image/include/SDL_image.h"	// Required for image loading functionality
 #include "SDL_mixer/include/SDL_mixer.h"	// Required for audio loading and playing functionality
+#include "SDL_ttf/include/SDL_ttf.h"		//Requiered for font and writing funcitonality
 
 
 // Define libraries required by linker
@@ -92,6 +93,7 @@ struct GlobalState
 	SDL_Window* window;
 	SDL_Surface* surface;
 	SDL_Renderer* renderer;
+	TTF_Font* mario;
 
 	// Input events
 	KeyState* keyboard;
