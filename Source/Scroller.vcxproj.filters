@@ -36,5 +36,17 @@
     <ClInclude Include="Player.h">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="TittleScreen.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="TileSet.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

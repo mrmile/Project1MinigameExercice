@@ -2,7 +2,7 @@
 
 #include "MainHeader.h"
 #include "MainFunctionsHeader.h"
-
+#include"Entity.h"
 
 
 void PlayerMechanicsDefinition(GlobalState &state)

@@ -7,6 +7,7 @@
 #include "Level_3.h"
 #include "TitleScreen.h"
 #include "LevelEnd.h"
+#include"Entity.h"
 
 
 // Global game state variable

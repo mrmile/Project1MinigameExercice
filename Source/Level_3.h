@@ -4,7 +4,7 @@
 #include "MainHeader.h"
 #include "MainFunctionsHeader.h"
 #include "Player.h"
-
+#include"Entity.h"
 
 void Level_3MechanicsDefinition(GlobalState& state)
 {
