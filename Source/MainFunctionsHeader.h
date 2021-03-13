@@ -125,10 +125,48 @@ void Finish()
 {
 	// L4: TODO 3: Unload music/fx and deinitialize audio system
 	Mix_FreeMusic(state.castle);
+	Mix_FreeMusic(state.cave);
+	Mix_FreeMusic(state.overworld);
+	Mix_FreeMusic(state.levelWin);
+	Mix_FreeMusic(state.titleScreen);
+	Mix_FreeChunk(state.fx_shoot);
+	Mix_FreeChunk(state.bossAttack);
+	Mix_FreeChunk(state.breakBlock);
+	Mix_FreeChunk(state.bulletShot);
+	Mix_FreeChunk(state.checkPointAndGoal);
+	Mix_FreeChunk(state.clap);
+	Mix_FreeChunk(state.coin);
+	Mix_FreeChunk(state.defeat);
+	Mix_FreeChunk(state.kick);
+	Mix_FreeChunk(state.playerExplode);
+	Mix_FreeChunk(state.stomp);
 
 	// Unload textures and deinitialize image system
+	SDL_DestroyTexture(state.background1);
+	SDL_DestroyTexture(state.background2);
 	SDL_DestroyTexture(state.background3);
 	SDL_DestroyTexture(state.player);
+	SDL_DestroyTexture(state.shot);
+	SDL_DestroyTexture(state.boss);
+	SDL_DestroyTexture(state.fuzzBall);
+	SDL_DestroyTexture(state.DownRightArrow);
+	SDL_DestroyTexture(state.DownLeftArrow);
+	SDL_DestroyTexture(state.UpRightArrow);
+	SDL_DestroyTexture(state.UpLeftArrow);
+	SDL_DestroyTexture(state.RedTurtle);
+	SDL_DestroyTexture(state.GreenTurtle1);
+	SDL_DestroyTexture(state.GreenTurtle1and2);
+	SDL_DestroyTexture(state.BrownGoomba);
+	SDL_DestroyTexture(state.BlueGoomba);
+	SDL_DestroyTexture(state.GreyGoomba);
+	SDL_DestroyTexture(state.BuzzyBeetle);
+	SDL_DestroyTexture(state.HammerBrother);
+	SDL_DestroyTexture(state.CheckPoint);
+	SDL_DestroyTexture(state.GoalPoint);
+	SDL_DestroyTexture(state.FireWork);
+	SDL_DestroyTexture(state.Coin);
+	SDL_DestroyTexture(state.QuestionBlock);
+	SDL_DestroyTexture(state.BrickBlock);
 	IMG_Quit();
 
 	// L2: DONE 3: Close game controller
