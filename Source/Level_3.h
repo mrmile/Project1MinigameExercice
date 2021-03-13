@@ -8,7 +8,7 @@
 
 void Level_3MechanicsDefinition(GlobalState& state)
 {
-
+	Mix_PlayMusic(state.castle, -1);
 }
 
 void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)

@@ -110,7 +110,7 @@ void Start()
 	state.playerExplode = Mix_LoadWAV("Assets/playerExplode.wav");
 	state.stomp = Mix_LoadWAV("Assets/stomp.wav");
 
-	Mix_PlayMusic(state.castle, -1);
+	
 
 
 	// Init game variables
@@ -330,7 +330,7 @@ void Draw()
 
 	// Draw background texture (two times for scrolling effect)
 	// NOTE: rec rectangle is being reused for next draws
-	SDL_Rect rec = { -state.scroll, 0, 3701, SCREEN_HEIGHT };
+	SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
 	SDL_Rect rec2 = { state.bullet.frame_x, state.bullet.frame_y, state.bullet.frame_w, state.bullet.frame_h };
 
 	
