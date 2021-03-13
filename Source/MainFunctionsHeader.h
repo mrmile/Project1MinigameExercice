@@ -308,6 +308,7 @@ void Draw()
 				}
 				case state.Level_2:
 				{
+				
 					Level_2DrawDefinition(state, rec, rec2);
 
 					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
@@ -316,7 +317,10 @@ void Draw()
 				case state.Level_3:
 				{
 					
+<<<<<<< HEAD
 
+=======
+>>>>>>> caca84aacfc00513d9aedbd4511bba4a04755b3c
 					Level_3DrawDefinition(state, rec, rec2);
 
 					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc

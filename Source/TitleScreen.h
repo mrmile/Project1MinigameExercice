@@ -10,5 +10,5 @@ void TitleScreenMechanicsDefinition(GlobalState& state)
 
 void TitleScreenDrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
-
+	
 }
