@@ -6,7 +6,7 @@
       <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="HeaderFiles">
-      <UniqueIdentifier>{3dd99001-8b35-422e-ab25-eae69e53baff}</UniqueIdentifier>
+      <UniqueIdentifier>{faefbac2-fd4d-46d8-b7d0-8375261fad49}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -15,15 +15,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MainHeader.h">
-      <Filter>HeaderFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="MainFunctionsHeader.h">
-      <Filter>HeaderFiles</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>HeaderFiles</Filter>
-    </ClInclude>
     <ClInclude Include="Level_1.h">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
@@ -33,10 +24,16 @@
     <ClInclude Include="Level_3.h">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScreen.h">
+    <ClInclude Include="LevelEnd.h">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
-    <ClInclude Include="LevelEnd.h">
+    <ClInclude Include="MainFunctionsHeader.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="MainHeader.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
   </ItemGroup>

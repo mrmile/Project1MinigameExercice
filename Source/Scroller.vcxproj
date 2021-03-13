@@ -98,7 +98,6 @@
     <ClInclude Include="MainFunctionsHeader.h" />
     <ClInclude Include="MainHeader.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="TitleScreen.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

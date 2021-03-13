@@ -2,15 +2,6 @@
 
 #include "MainHeader.h"
 #include "MainFunctionsHeader.h"
-#include "Level_1.h"
-<<<<<<< HEAD
-#include "Level_2.h"
-#include "Level_3.h"
-=======
-#include"Level_2.h"
-#include"Level_3.h"
-#include"LevelEnd.h"
->>>>>>> caca84aacfc00513d9aedbd4511bba4a04755b3c
 
 
 
