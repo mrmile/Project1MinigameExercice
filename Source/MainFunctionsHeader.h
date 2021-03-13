@@ -280,18 +280,8 @@ void Draw()
 	SDL_SetRenderDrawColor(state.renderer, 100, 149, 237, 255);
 	SDL_RenderClear(state.renderer);
 
-	// Draw background and scroll
-	state.scroll += SCROLL_SPEED;
-	if (state.scroll >= 3701)	state.scroll = 0;
-
-	// Draw background texture (two times for scrolling effect)
-	// NOTE: rec rectangle is being reused for next draws
 	SDL_Rect rec = { -state.scroll, 0, 3701, SCREEN_HEIGHT };
 	SDL_Rect rec2 = { state.bullet.frame_x, state.bullet.frame_y, state.bullet.frame_w, state.bullet.frame_h };
-
-	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
-	rec.x += 3701;
-	SDL_RenderCopy(state.renderer, state.background, NULL, &rec);
 
 	
 	
@@ -305,7 +295,7 @@ void Draw()
 		}
 		case state.LevelScenes:
 		{
-			DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
+			
 
 			switch (state.level)
 			{
@@ -313,18 +303,23 @@ void Draw()
 				{
 					Level_1DrawDefinition(state, rec, rec2);
 
+					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
 					break;
 				}
 				case state.Level_2:
 				{
 					Level_2DrawDefinition(state, rec, rec2);
 
+					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
 					break;
 				}
 				case state.Level_3:
 				{
+					
+
 					Level_3DrawDefinition(state, rec, rec2);
 
+					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
 					break;
 				}
 				case state.LevelEnd:
