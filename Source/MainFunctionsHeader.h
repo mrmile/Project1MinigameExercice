@@ -49,6 +49,7 @@ void Start()
 	// Init image system and load textures
 	IMG_Init(IMG_INIT_PNG);
 	TTF_Init();
+	state.font = TTF_OpenFont("Assets/font.ttf", 90);
 	state.background1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/clouds.png"));
 	state.background2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/cave.png"));
 	state.background3 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));

@@ -93,7 +93,8 @@ struct GlobalState
 	SDL_Window* window;
 	SDL_Surface* surface;
 	SDL_Renderer* renderer;
-	TTF_Font* mario;
+	TTF_Font* font;
+	SDL_Color white = { 255,255,255 };
 
 	// Input events
 	KeyState* keyboard;

@@ -17,10 +17,12 @@ void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 	// Draw background and scroll
 	state.scroll += SCROLL_SPEED;
 	if (state.scroll >= state.background_width)	state.scroll = 0;
-
 	
-
+	
+	
 	SDL_RenderCopy(state.renderer, state.background3, NULL, &rec);
 	rec.x += state.background_width;
 	SDL_RenderCopy(state.renderer, state.background3, NULL, &rec);
+	SDL_Surface *message = TTF_RenderText_Solid(state.font, "This is a test", state.white);
+	SDL_BlitSurface(message, NULL, state.surface, NULL);
 }
