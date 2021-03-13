@@ -111,7 +111,26 @@ void Start()
 	state.stomp = Mix_LoadWAV("Assets/stomp.wav");
 
 	
-
+	if ((state.scene == state.TitleScreen) && (state.GeneralFPS < 1))
+	{
+		Mix_PlayMusic(state.titleScreen, -1);
+	}
+	if ((state.level == state.Level_1) && (state.GeneralFPS < 1))
+	{
+		Mix_PlayMusic(state.overworld, -1);
+	}
+	if ((state.level == state.Level_2) && (state.GeneralFPS < 1))
+	{
+		Mix_PlayMusic(state.cave, -1);
+	}
+	if ((state.level == state.Level_3) && (state.GeneralFPS < 1))
+	{
+		Mix_PlayMusic(state.castle, -1);
+	}
+	if ((state.level == state.LevelEnd) && (state.GeneralFPS < 1))
+	{
+		Mix_PlayMusic(state.levelWin, -1);
+	}
 
 	// Init game variables
 	state.bullet.player_x = 100;
@@ -306,6 +325,7 @@ void MoveStuff()
 	{
 		case state.TitleScreen:
 		{
+			state.GeneralFPS++;
 			TitleScreenMechanicsDefinition(state);
 
 			break;
@@ -318,30 +338,35 @@ void MoveStuff()
 			{
 				case state.Level_1:
 				{
+					state.GeneralFPS++;
 					Level_1MechanicsDefinition(state);
 
 					break;
 				}
 				case state.Level_2:
 				{
+					state.GeneralFPS++;
 					Level_2MechanicsDefinition(state);
 
 					break;
 				}
 				case state.Level_3:
 				{
+					state.GeneralFPS++;
 					Level_3MechanicsDefinition(state);
 
 					break;
 				}
 				case state.LevelEnd:
 				{
+					state.GeneralFPS++;
 					LevelEndMechanicsDefinition(state);
 
 					break;
 				}
 				case state.FinalLevelEnd: //Does the same as LevelEnd but returns to the titlescreen instead of the next level and prints the final player's score in the center of the screen
 				{
+					state.GeneralFPS++;
 					TitleScreenMechanicsDefinition(state);
 
 					break;

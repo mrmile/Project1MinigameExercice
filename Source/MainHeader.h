@@ -78,14 +78,15 @@ struct GlobalState
 
 	enum Levels
 	{
-		Level_1 = 0,
+		OtherScene = 0,
+		Level_1,
 		Level_2,
 		Level_3,
 
 		LevelEnd,
 		FinalLevelEnd
 	};
-	Levels level = Level_2;
+	Levels level = Level_3;
 
 	// Window and renderer
 	SDL_Window* window;

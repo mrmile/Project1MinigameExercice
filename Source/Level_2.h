@@ -8,7 +8,7 @@
 
 void Level_2MechanicsDefinition(GlobalState& state)
 {
-	Mix_PlayMusic(state.cave, -1);
+	
 }
 
 void Level_2DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
