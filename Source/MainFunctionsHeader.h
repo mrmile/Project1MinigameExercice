@@ -403,6 +403,13 @@ void Draw()
 
 			TitleScreenDrawDefinition(state, rec, rec2);
 
+			if (state.keyboard[SDL_SCANCODE_RETURN] == KEY_DOWN)
+			{
+				Mix_HaltMusic();
+				state.GeneralFPS = 0;
+				state.level = state.Level_2;
+				state.scene = state.LevelScenes;
+			}
 			break;
 		}
 		case state.LevelScenes:
