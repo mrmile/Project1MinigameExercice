@@ -13,7 +13,7 @@ void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2);
 void Level_3MechanicsDefinition(GlobalState& state)
 {
 	BossMechanicsDefinition(state);
-	GreyGoomba_MechanicsDefinition(state, 500, 500);
+	GreyGoomba_MechanicsDefinition(state, 0, 0);
 }
 
 void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
@@ -31,7 +31,9 @@ void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 	
 
 
-	GreyGoomba_DrawDefinition(state, rec, rec2);
+	
 	
 	BossDrawDefinition(state, rec, rec2);
+
+	GreyGoomba_DrawDefinition(state, rec, rec2);
 }
