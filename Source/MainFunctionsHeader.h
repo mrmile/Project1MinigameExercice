@@ -54,7 +54,7 @@ void Start()
 	state.background1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/clouds.png"));
 	state.background2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/cave.png"));
 	state.background3 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
-	state.title = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/WholeTitleScreen.png"));
+	state.title = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/TitleScreen1.png"));
 
 	state.player = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
@@ -388,10 +388,11 @@ void Draw()
 
 	// Draw background texture (two times for scrolling effect)
 	// NOTE: rec rectangle is being reused for next draws
-	SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
-	SDL_Rect rec2 = { state.bullet.playerFrame_x, state.bullet.playerFrame_y, state.bullet.playerFrame_w, state.bullet.playerFrame_h };
+	//SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
+	//SDL_Rect rec2 = { state.bullet.playerFrame_x, state.bullet.playerFrame_y, state.bullet.playerFrame_w, state.bullet.playerFrame_h };
 
-	
+	SDL_Rect rec {0, 0, 1280, 720};
+	SDL_Rect rec2 { 0, 0, 1280, 720 };
 
 	
 	
@@ -399,12 +400,14 @@ void Draw()
 	{
 		case state.TitleScreen:
 		{
+			
 			if (state.GeneralFPS < 3)
 			{
 				Mix_PlayMusic(state.titleScreen, -1);
 
 				Mix_HookMusicFinished(NULL);
 			}
+			SDL_RenderCopy(state.renderer, state.title, &rec2, &rec);
 
 			TitleScreenDrawDefinition(state, rec, rec2);
 
@@ -412,14 +415,16 @@ void Draw()
 			{
 				Mix_HaltMusic();
 				state.GeneralFPS = 0;
-				state.level = state.Level_2;
+				state.level = state.Level_3;
 				state.scene = state.LevelScenes;
 			}
+			
 			break;
 		}
 		case state.LevelScenes:
 		{
-			
+			rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
+			rec2 = { state.bullet.playerFrame_x, state.bullet.playerFrame_y, state.bullet.playerFrame_w, state.bullet.playerFrame_h };
 
 			switch (state.level)
 			{
@@ -441,7 +446,6 @@ void Draw()
 				case state.Level_2:
 				{
 					state.castleBoss.bossLife = 4; //Does not make much sense but it has to be here
-					state.GreyGoomba_Entity.entityLife = 1;
 
 					if (state.GeneralFPS < 3)
 					{
@@ -452,17 +456,10 @@ void Draw()
 
 					Level_2DrawDefinition(state, rec, rec2);
 
-
+					
 					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
 
-					if (state.GeneralFPS >= 140) // An example of how to jump from cases
-					{
-						Mix_HaltMusic();
-						state.GeneralFPS = 0;
-						state.level = state.Level_3;
-						
-						
-					}
+					
 					break;
 				}
 				case state.Level_3:

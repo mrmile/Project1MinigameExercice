@@ -79,7 +79,7 @@ struct GlobalState
 		TitleScreen = 0,
 		LevelScenes
 	};
-	GameScene scene = LevelScenes;
+	GameScene scene = TitleScreen;
 
 	enum Levels
 	{
@@ -91,7 +91,7 @@ struct GlobalState
 		LevelEnd,
 		FinalLevelEnd,
 	};
-	Levels level = Level_3;
+	Levels level = OtherScene;
 
 	// Window and renderer
 	SDL_Window* window;

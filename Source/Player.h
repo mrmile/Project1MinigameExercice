@@ -4,11 +4,12 @@
 #include "MainFunctionsHeader.h"
 #include"Entity.h"
 
+// UNFINISHED !!! Mising thing todo: Implement case when the player dies and make a full restructuring due to that
 
 void PlayerMechanicsDefinition(GlobalState &state)
 {
 	state.bullet.PlayerFPS++;
-	// L2: DONE 7: Move the ship with arrow keys
+	
 	if (state.bullet.PlayerFPS <= 5)
 	{
 		state.bullet.playerFrame_x = 8;

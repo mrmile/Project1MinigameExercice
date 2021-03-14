@@ -10,7 +10,7 @@ static void DrawLine(int x1, int y1, int x2, int y2, SDL_Color color);
 static void DrawCircle(int x, int y, int radius, SDL_Color color);
 
 
-
+// THE GAME IS UNFINISHED, SORRY FOR THAT...
 
 // Main Entry point
 // -------------------------------------------------------------------------
