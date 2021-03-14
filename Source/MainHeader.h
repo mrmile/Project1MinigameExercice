@@ -186,6 +186,8 @@ struct GlobalState
 
 	Boss castleBoss;
 
+	//Entities (interactive level things with player)
+
 	typedef struct Entity
 	{
 		//From game point of view
@@ -204,6 +206,8 @@ struct GlobalState
 		int entityFPS;
 	} Entity;
 
+	//Tiles (interactive level things with player BUT NOT ANIMATED)
+
 	typedef struct Tile
 	{
 		//From game point of view
@@ -219,7 +223,26 @@ struct GlobalState
 		int tileFrame_h;
 	} Tile;
 
-	//Entities (interactive level things with player)
+	Tile GreenPipeUp; //To use in level 1 and 2
+	Tile GreenPipeDown; //To use in level 1 and 2
+	Tile GreyPipeUp; //To use in level 3
+	Tile GreyPipeDown; //To use in level 3
+
+	Tile SmallGrassWallUp; //To use in level 1
+	Tile GrassWallUp; //To use in level 1
+	Tile SmallGrassWallDown; //To use in level 1
+	Tile GrassWallDown; //To use in level 1
+
+	Tile SmallPalmUp; //To use in level 1
+	Tile PalmUp; //To use in level 1
+	Tile SmallPalmDown; //To use in level 1
+	Tile PalmDown; //To use in level 1
+	
+	Tile SmallCaveWallUp; //To use in level 2
+	Tile CaveWallUp; //To use in level 2
+	Tile SmallCaveWallDown; //To use in level 2
+	Tile CaveWallDown; //To use in level 2
+	
 
 	//Player
 	typedef struct Player
