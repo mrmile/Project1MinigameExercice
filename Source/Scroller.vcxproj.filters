@@ -48,5 +48,8 @@
     <ClInclude Include="Boss.h">
       <Filter>HeaderFiles</Filter>
     </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>HeaderFiles</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -92,6 +92,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="Collision.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="LevelEnd.h" />
     <ClInclude Include="Level_1.h" />
