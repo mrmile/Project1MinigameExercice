@@ -114,29 +114,7 @@ void Start()
 	state.stomp = Mix_LoadWAV("Assets/stomp.wav");
 
 	
-	if ((state.scene == state.TitleScreen) && (state.GeneralFPS < 1))
-	{
-		Mix_PlayMusic(state.titleScreen, -1);
-	}
-	else if ((state.level == state.Level_1) && (state.GeneralFPS < 1))
-	{
-		Mix_PlayMusic(state.overworld, -1);
-	}
-	else if ((state.level == state.Level_2) && (state.GeneralFPS < 1))
-	{
-		Mix_PlayMusic(state.cave, -1);
-	}
-	else if ((state.level == state.Level_3) && (state.GeneralFPS < 10))
-	{
-		Mix_PlayMusic(state.castle, -1);
-		
-
-		Mix_HookMusicFinished(NULL);
-	}
-	else if ((state.level == state.LevelEnd) && (state.GeneralFPS < 1))
-	{
-		Mix_PlayMusic(state.levelWin, -1);
-	}
+	
 
 	// Init game variables
 	state.bullet.player_x = 100;
@@ -434,12 +412,19 @@ void Draw()
 				{
 					state.castleBoss.bossLife = 4; //Does not make much sense but it has to be here
 
+					if (state.GeneralFPS < 3)
+					{
+						Mix_PlayMusic(state.cave, -1);
+
+						Mix_HookMusicFinished(NULL);
+					}
+
 					Level_2DrawDefinition(state, rec, rec2);
 
 
 					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
 
-					if (state.GeneralFPS >= 140)
+					if (state.GeneralFPS >= 140) // An example of how to jump from cases
 					{
 						Mix_HaltMusic();
 						state.GeneralFPS = 0;
@@ -452,7 +437,13 @@ void Draw()
 				case state.Level_3:
 				{
 					Level_3DrawDefinition(state, rec, rec2);
+					if (state.GeneralFPS < 3)
+					{
+						Mix_PlayMusic(state.castle, -1);
 
+
+						Mix_HookMusicFinished(NULL);
+					}
 
 					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
 					break;
