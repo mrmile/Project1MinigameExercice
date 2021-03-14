@@ -441,6 +441,7 @@ void Draw()
 				case state.Level_2:
 				{
 					state.castleBoss.bossLife = 4; //Does not make much sense but it has to be here
+					state.GreyGoomba_Entity.entityLife = 1;
 
 					if (state.GeneralFPS < 3)
 					{

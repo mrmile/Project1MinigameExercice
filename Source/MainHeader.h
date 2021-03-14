@@ -210,6 +210,8 @@ struct GlobalState
 		int entityFPS;
 	} Entity;
 
+	Entity BossShot_Entity;
+
 	Entity DownRightArrow_Entity; //To use in all levels
 	Entity UpRightArrow_Entity; //To use in all levels
 	Entity DownLeftArrow_Entity; //To use in all levels
