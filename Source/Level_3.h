@@ -7,9 +7,13 @@
 #include "Entity.h"
 #include "Boss.h"
 
+void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y);
+void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2);
+
 void Level_3MechanicsDefinition(GlobalState& state)
 {
 	BossMechanicsDefinition(state);
+	GreyGoomba_MechanicsDefinition(state, 500, 500);
 }
 
 void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
@@ -24,7 +28,10 @@ void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 	SDL_RenderCopy(state.renderer, state.background3, NULL, &rec);
 	rec.x += state.background_width;
 	SDL_RenderCopy(state.renderer, state.background3, NULL, &rec);
-	state.message = TTF_RenderText_Solid(state.font, "This is a test", state.white);
+	
+
+
+	GreyGoomba_DrawDefinition(state, rec, rec2);
 	
 	BossDrawDefinition(state, rec, rec2);
 }

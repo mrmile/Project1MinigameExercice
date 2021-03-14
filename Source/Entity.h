@@ -6,7 +6,6 @@
 #include "Level_1.h"
 #include "Level_2.h"
 #include "Level_3.h"
-#include "Player.h"
 
 //COLLISIONS ARE NOT IMPLEMENTED YET AND ITS INTERACTIONS WITH THE PLAYER ARE NOT FULLY IMPLEMENTED !!!
 
