@@ -168,11 +168,13 @@ struct GlobalState
 	//Boss
 	typedef struct Boss
 	{
+		//From game point of view
 		int boss_x;
 		int boss_y;
 		int boss_w;
 		int boss_h;
 
+		//From image point of view
 		int bossFrame_x;
 		int bossFrame_y;
 		int bossFrame_w;
@@ -183,6 +185,39 @@ struct GlobalState
 	} Boss;
 
 	Boss castleBoss;
+
+	typedef struct Entity
+	{
+		//From game point of view
+		int entity_x;
+		int entity_y;
+		int entity_w;
+		int entity_h;
+
+		//From image point of view
+		int entityFrame_x;
+		int entityFrame_y;
+		int entityFrame_w;
+		int entityFrame_h;
+
+		int entityLife;
+		int entityFPS;
+	} Entity;
+
+	typedef struct Tile
+	{
+		//From game point of view
+		int boss_x;
+		int boss_y;
+		int boss_w;
+		int boss_h;
+
+		//From image point of view
+		int tileFrame_x;
+		int tileFrame_y;
+		int tileFrame_w;
+		int tileFrame_h;
+	} Tile;
 
 	//Entities (interactive level things with player)
 

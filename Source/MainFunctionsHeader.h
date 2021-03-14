@@ -390,6 +390,13 @@ void Draw()
 	{
 		case state.TitleScreen:
 		{
+			if (state.GeneralFPS < 3)
+			{
+				Mix_PlayMusic(state.titleScreen, -1);
+
+				Mix_HookMusicFinished(NULL);
+			}
+
 			TitleScreenDrawDefinition(state, rec, rec2);
 
 			break;
@@ -402,6 +409,13 @@ void Draw()
 			{
 				case state.Level_1:
 				{
+					if (state.GeneralFPS < 3)
+					{
+						Mix_PlayMusic(state.overworld, -1);
+
+						Mix_HookMusicFinished(NULL);
+					}
+
 					Level_1DrawDefinition(state, rec, rec2);
 
 
@@ -450,12 +464,26 @@ void Draw()
 				}
 				case state.LevelEnd:
 				{
+					if (state.GeneralFPS < 3)
+					{
+						Mix_PlayMusic(state.levelWin, -1);
+
+						Mix_HookMusicFinished(NULL);
+					}
+
 					LevelEndnDrawDefinition(state, rec, rec2);
 
 					break;
 				}
 				case state.FinalLevelEnd:
 				{
+					if (state.GeneralFPS < 3)
+					{
+						Mix_PlayMusic(state.levelWin, -1);
+
+						Mix_HookMusicFinished(NULL);
+					}
+
 					LevelEndnDrawDefinition(state, rec, rec2);
 
 					break;
