@@ -218,7 +218,7 @@ void IntersectsWith(GlobalState& state)
 		state.bullet.playerFrame_y >                              state.GreyGoomba_Entity.entityFrame_y +
 		                                                          state.GreyGoomba_Entity.entityFrame_h)
 	{
-		                                                          state.GreyGoomba_Entity.entityLife = 1;
+		state.GreyGoomba_Entity.entityLife = 1;
 		//No colisiona
 	}
 	else if (state.bullet.playerFrame_x +
@@ -230,7 +230,7 @@ void IntersectsWith(GlobalState& state)
 		state.bullet.playerFrame_y <                              state.GreyGoomba_Entity.entityFrame_y +
 		                                                          state.GreyGoomba_Entity.entityFrame_h)
 	{
-		                                                          state.GreyGoomba_Entity.entityLife = 0;
+		state.GreyGoomba_Entity.entityLife = 0;
 		//Colisiona
 	}
 

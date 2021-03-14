@@ -10,8 +10,12 @@
 void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y);
 void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2);
 
+void IntersectsWith(GlobalState& state);
+
 void Level_3MechanicsDefinition(GlobalState& state)
 {
+	IntersectsWith(state);
+
 	BossMechanicsDefinition(state);
 	GreyGoomba_MechanicsDefinition(state, 1290 - SCROLL_SPEED, 200);
 }

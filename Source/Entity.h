@@ -6,8 +6,7 @@
 #include "Level_1.h"
 #include "Level_2.h"
 #include "Level_3.h"
-
-//COLLISIONS ARE NOT IMPLEMENTED YET AND ITS INTERACTIONS WITH THE PLAYER ARE NOT FULLY IMPLEMENTED !!!
+#include "Collision.h"
 
 void DownRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 {
