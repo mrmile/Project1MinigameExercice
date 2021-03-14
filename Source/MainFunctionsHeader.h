@@ -91,6 +91,10 @@ void Start()
 	SDL_QueryTexture(state.background2, NULL, NULL, &state.background_width, NULL);
 	SDL_QueryTexture(state.background3, NULL, NULL, &state.background_width, NULL);
 
+	SDL_QueryTexture(state.TitleScreen1, NULL, NULL, &state.background_width, NULL);
+	SDL_QueryTexture(state.TitleScreen2, NULL, NULL, &state.background_width, NULL);
+	SDL_QueryTexture(state.TitleScreen1, NULL, NULL, &state.background_width, NULL);
+
 	
 
 	// L4: TODO 1: Init audio system and load music/fx
@@ -306,6 +310,11 @@ bool CheckInput()
 	// L2: DONE 6: Check ESCAPE key pressed to finish the game
 	if (state.keyboard[SDL_SCANCODE_ESCAPE] == KEY_DOWN) return false;
 
+	
+	
+
+
+
 	// Check QUIT window event to finish the game
 	if (state.window_events[WE_QUIT] == true) return false;
 
@@ -325,6 +334,7 @@ void MoveStuff()
 		{
 			state.GeneralFPS++;
 			TitleScreenMechanicsDefinition(state);
+			
 			
 			break;
 		}
@@ -394,7 +404,7 @@ void Draw()
 	// NOTE: rec rectangle is being reused for next draws
 	SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
 	SDL_Rect rec2 = { state.bullet.playerFrame_x, state.bullet.playerFrame_y, state.bullet.playerFrame_w, state.bullet.playerFrame_h };
-	SDL_Rect recTitle = { 0.0,SCREEN_WIDTH,SCREEN_HEIGHT };
+	
 
 	
 
@@ -411,7 +421,7 @@ void Draw()
 				Mix_HookMusicFinished(NULL);
 			}
 
-			TitleScreenDrawDefinition(state, rec, recTitle);
+			TitleScreenDrawDefinition(state, rec, rec2);
 
 			break;
 		}
