@@ -31,7 +31,7 @@ void DownRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 
 }
 
-void DownRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void DownRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.DownRightArrow_Entity.entity_x; rec.y = state.DownRightArrow_Entity.entity_y; rec.w = state.DownRightArrow_Entity.entity_w * 4; rec.h = state.DownRightArrow_Entity.entity_h * 4;
 	rec2.x = state.DownRightArrow_Entity.entityFrame_x; rec2.y = state.DownRightArrow_Entity.entityFrame_y; rec2.w = state.DownRightArrow_Entity.entityFrame_w; rec2.h = state.DownRightArrow_Entity.entityFrame_h;
@@ -62,7 +62,7 @@ void UpRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	
 }
 
-void UpRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void UpRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.UpRightArrow_Entity.entity_x; rec.y = state.UpRightArrow_Entity.entity_y; rec.w = state.UpRightArrow_Entity.entity_w * 4; rec.h = state.UpRightArrow_Entity.entity_h * 4;
 	rec2.x = state.UpRightArrow_Entity.entityFrame_x; rec2.y = state.UpRightArrow_Entity.entityFrame_y; rec2.w = state.UpRightArrow_Entity.entityFrame_w; rec2.h = state.UpRightArrow_Entity.entityFrame_h;
@@ -92,7 +92,7 @@ void DownLeftArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	}
 }
 
-void DownLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void DownLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.DownLeftArrow_Entity.entity_x; rec.y = state.DownLeftArrow_Entity.entity_y; rec.w = state.DownLeftArrow_Entity.entity_w * 4; rec.h = state.DownLeftArrow_Entity.entity_h * 4;
 	rec2.x = state.DownLeftArrow_Entity.entityFrame_x; rec2.y = state.DownLeftArrow_Entity.entityFrame_y; rec2.w = state.DownLeftArrow_Entity.entityFrame_w; rec2.h = state.DownLeftArrow_Entity.entityFrame_h;
@@ -123,7 +123,7 @@ void UpLeftArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	}
 }
 
-void UpLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void UpLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	
 	rec.x = state.UpLeftArrow_Entity.entity_x; rec.y = state.UpLeftArrow_Entity.entity_y; rec.w = state.UpLeftArrow_Entity.entity_w * 4; rec.h = state.UpLeftArrow_Entity.entity_h * 4;
@@ -169,7 +169,7 @@ void FuzzBall_MechanicsDefinition(GlobalState& state, int x, int y)
 	}
 }
 
-void FuzzBall_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void FuzzBall_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	
 	if (state.FuzzBall_Entity.entityLife == 1)
@@ -219,7 +219,7 @@ void FlyingRedTurtle_MechanicsDefinition(GlobalState& state, int x, int y)
 	state.FlyingRedTurtle_Entity.entity_x = x; state.FlyingRedTurtle_Entity.entity_y = y;
 }
 
-void FlyingRedTurtle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void FlyingRedTurtle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.FlyingRedTurtle_Entity.entity_x; rec.y = state.FlyingRedTurtle_Entity.entity_y; rec.w = state.FlyingRedTurtle_Entity.entityFrame_w * 4; rec.h = state.FlyingRedTurtle_Entity.entity_h * 4;
 	rec2.x = state.FlyingRedTurtle_Entity.entityFrame_x; rec2.y = state.FlyingRedTurtle_Entity.entityFrame_y; rec2.w = state.FlyingRedTurtle_Entity.entityFrame_w; rec2.h = state.FlyingRedTurtle_Entity.entityFrame_h;
@@ -259,7 +259,7 @@ void GreenTurtle1_MechanicsDefinition(GlobalState& state, int x, int y)
 	
 }
 
-void GreenTurtle1_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void GreenTurtle1_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.GreenTurtle1_Entity.entity_x; rec.y = state.GreenTurtle1_Entity.entity_y; rec.w = state.GreenTurtle1_Entity.entityFrame_w * 4; rec.h = state.GreenTurtle1_Entity.entity_h * 4;
 	rec2.x = state.GreenTurtle1_Entity.entityFrame_x; rec2.y = state.GreenTurtle1_Entity.entityFrame_y; rec2.w = state.GreenTurtle1_Entity.entityFrame_w; rec2.h = state.GreenTurtle1_Entity.entityFrame_h;
@@ -299,7 +299,7 @@ void BlueGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
 
 }
 
-void BlueGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void BlueGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.BlueGoomba_Entity.entity_x; rec.y = state.BlueGoomba_Entity.entity_y; rec.w = state.BlueGoomba_Entity.entityFrame_w * 4; rec.h = state.BlueGoomba_Entity.entity_h * 4;
 	rec2.x = state.BlueGoomba_Entity.entityFrame_x; rec2.y = state.BlueGoomba_Entity.entityFrame_y; rec2.w = state.BlueGoomba_Entity.entityFrame_w; rec2.h = state.BlueGoomba_Entity.entityFrame_h;
@@ -339,12 +339,52 @@ void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
 
 }
 
-void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 {
 	rec.x = state.GreyGoomba_Entity.entity_x; rec.y = state.GreyGoomba_Entity.entity_y; rec.w = state.GreyGoomba_Entity.entityFrame_w * 4; rec.h = state.GreyGoomba_Entity.entity_h * 4;
 	rec2.x = state.GreyGoomba_Entity.entityFrame_x; rec2.y = state.GreyGoomba_Entity.entityFrame_y; rec2.w = state.GreyGoomba_Entity.entityFrame_w; rec2.h = state.GreyGoomba_Entity.entityFrame_h;
 
 	SDL_RenderCopy(state.renderer, state.GreyGoomba, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
+
+void BuzzyBeetle_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if (state.BuzzyBeetle_Entity.entityLife == 1)
+	{
+		if ((state.BuzzyBeetle_Entity.entityFPS / 5) % 2 == 0)
+		{
+			state.BuzzyBeetle_Entity.entityFrame_x = 11; state.BuzzyBeetle_Entity.entityFrame_y = 210; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
+
+			state.BuzzyBeetle_Entity.entity_x = x; state.BuzzyBeetle_Entity.entity_y = y;
+		}
+		else
+		{
+			state.BuzzyBeetle_Entity.entityFrame_x = 28; state.BuzzyBeetle_Entity.entityFrame_y = 210; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
+
+			state.BuzzyBeetle_Entity.entity_x = x; state.BuzzyBeetle_Entity.entity_y = y;
+		}
+	}
+	if (state.BuzzyBeetle_Entity.entityLife == 0)
+	{
+		state.BuzzyBeetle_Entity.entityFrame_x = 96; state.BuzzyBeetle_Entity.entityFrame_y = 210; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
+
+		state.BuzzyBeetle_Entity.entity_x = x; state.BuzzyBeetle_Entity.entity_y--;
+	}
+	if (state.BuzzyBeetle_Entity.entityLife == 0 && state.BuzzyBeetle_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.kick, 0);
+	}
+
+}
+
+void BuzzyBeetle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
+{
+	rec.x = state.BuzzyBeetle_Entity.entity_x; rec.y = state.BuzzyBeetle_Entity.entity_y; rec.w = state.BuzzyBeetle_Entity.entityFrame_w * 4; rec.h = state.BuzzyBeetle_Entity.entity_h * 4;
+	rec2.x = state.BuzzyBeetle_Entity.entityFrame_x; rec2.y = state.BuzzyBeetle_Entity.entityFrame_y; rec2.w = state.BuzzyBeetle_Entity.entityFrame_w; rec2.h = state.BuzzyBeetle_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.BuzzyBeetle, &rec2, &rec);
 }
 
 //---------------------------------------------------------------------
