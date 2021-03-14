@@ -19,6 +19,7 @@ GlobalState state;
 // -------------------------------------------------------------------------
 void Start()
 {
+
 	// Initialize SDL internal global state
 	SDL_Init(SDL_INIT_EVERYTHING);
 
@@ -117,19 +118,22 @@ void Start()
 	{
 		Mix_PlayMusic(state.titleScreen, -1);
 	}
-	if ((state.level == state.Level_1) && (state.GeneralFPS < 1))
+	else if ((state.level == state.Level_1) && (state.GeneralFPS < 1))
 	{
 		Mix_PlayMusic(state.overworld, -1);
 	}
-	if ((state.level == state.Level_2) && (state.GeneralFPS < 1))
+	else if ((state.level == state.Level_2) && (state.GeneralFPS < 1))
 	{
 		Mix_PlayMusic(state.cave, -1);
 	}
-	if ((state.level == state.Level_3) && (state.GeneralFPS < 1))
+	else if ((state.level == state.Level_3) && (state.GeneralFPS < 10))
 	{
 		Mix_PlayMusic(state.castle, -1);
+		
+
+		Mix_HookMusicFinished(NULL);
 	}
-	if ((state.level == state.LevelEnd) && (state.GeneralFPS < 1))
+	else if ((state.level == state.LevelEnd) && (state.GeneralFPS < 1))
 	{
 		Mix_PlayMusic(state.levelWin, -1);
 	}
@@ -330,7 +334,7 @@ void MoveStuff()
 		{
 			state.GeneralFPS++;
 			TitleScreenMechanicsDefinition(state);
-
+			
 			break;
 		}
 		case state.LevelScenes:
@@ -358,6 +362,7 @@ void MoveStuff()
 					state.GeneralFPS++;
 					Level_3MechanicsDefinition(state);
 
+					
 					break;
 				}
 				case state.LevelEnd:
@@ -427,10 +432,21 @@ void Draw()
 				}
 				case state.Level_2:
 				{
+					state.castleBoss.bossLife = 4; //Does not make much sense but it has to be here
+
 					Level_2DrawDefinition(state, rec, rec2);
 
 
 					DrawPlayerDefinition(state, rec, rec2); //Define the rectangles and the SDL drawing functions to draw the player and its different frames, effects, etc
+
+					if (state.GeneralFPS >= 140)
+					{
+						Mix_HaltMusic();
+						state.GeneralFPS = 0;
+						state.level = state.Level_3;
+						
+						
+					}
 					break;
 				}
 				case state.Level_3:

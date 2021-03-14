@@ -88,9 +88,9 @@ struct GlobalState
 		Level_3,
 
 		LevelEnd,
-		FinalLevelEnd
+		FinalLevelEnd,
 	};
-	Levels level = Level_3;
+	Levels level = Level_2;
 
 	// Window and renderer
 	SDL_Window* window;
