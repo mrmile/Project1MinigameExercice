@@ -54,6 +54,7 @@ void Start()
 	state.background1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/clouds.png"));
 	state.background2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/cave.png"));
 	state.background3 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
+	state.title = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/WholeTitleScreen.png"));
 
 	state.player = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
@@ -86,6 +87,8 @@ void Start()
 	SDL_QueryTexture(state.background1, NULL, NULL, &state.background_width, NULL);
 	SDL_QueryTexture(state.background2, NULL, NULL, &state.background_width, NULL);
 	SDL_QueryTexture(state.background3, NULL, NULL, &state.background_width, NULL);
+
+	SDL_QueryTexture(state.title, NULL, NULL, &state.background_width, NULL);
 
 	// L4: TODO 1: Init audio system and load music/fx
 	Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
@@ -150,6 +153,7 @@ void Finish()
 	SDL_DestroyTexture(state.background1);
 	SDL_DestroyTexture(state.background2);
 	SDL_DestroyTexture(state.background3);
+	SDL_DestroyTexture(state.title);
 	SDL_DestroyTexture(state.player);
 	SDL_DestroyTexture(state.shot);
 	SDL_DestroyTexture(state.boss);
