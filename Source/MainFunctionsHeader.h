@@ -64,7 +64,7 @@ void Start()
 	state.DownLeftArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.UpRightArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.UpLeftArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
-	state.RedTurtle = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.FlyingRedTurtle = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.GreenTurtle1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.GreenTurtle1and2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.BrownGoomba = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
@@ -72,9 +72,11 @@ void Start()
 	state.GreyGoomba = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.BuzzyBeetle = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.HammerBrother = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.Hammer = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 
 	state.CheckPoint = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.GoalPoint = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
+	state.GoalPointBar = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.FireWork = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 
 	state.Coin = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
@@ -156,7 +158,7 @@ void Finish()
 	SDL_DestroyTexture(state.DownLeftArrow);
 	SDL_DestroyTexture(state.UpRightArrow);
 	SDL_DestroyTexture(state.UpLeftArrow);
-	SDL_DestroyTexture(state.RedTurtle);
+	SDL_DestroyTexture(state.FlyingRedTurtle);
 	SDL_DestroyTexture(state.GreenTurtle1);
 	SDL_DestroyTexture(state.GreenTurtle1and2);
 	SDL_DestroyTexture(state.BrownGoomba);
@@ -164,8 +166,10 @@ void Finish()
 	SDL_DestroyTexture(state.GreyGoomba);
 	SDL_DestroyTexture(state.BuzzyBeetle);
 	SDL_DestroyTexture(state.HammerBrother);
+	SDL_DestroyTexture(state.Hammer);
 	SDL_DestroyTexture(state.CheckPoint);
 	SDL_DestroyTexture(state.GoalPoint);
+	SDL_DestroyTexture(state.GoalPointBar);
 	SDL_DestroyTexture(state.FireWork);
 	SDL_DestroyTexture(state.Coin);
 	SDL_DestroyTexture(state.QuestionBlock);

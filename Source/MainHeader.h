@@ -124,7 +124,7 @@ struct GlobalState
 	SDL_Texture* DownLeftArrow;
 	SDL_Texture* UpRightArrow;
 	SDL_Texture* UpLeftArrow;
-	SDL_Texture* RedTurtle;
+	SDL_Texture* FlyingRedTurtle;
 	SDL_Texture* GreenTurtle1;
 	SDL_Texture* GreenTurtle1and2;
 	SDL_Texture* BrownGoomba;
@@ -132,9 +132,11 @@ struct GlobalState
 	SDL_Texture* GreyGoomba;
 	SDL_Texture* BuzzyBeetle;
 	SDL_Texture* HammerBrother;
+	SDL_Texture* Hammer;
 
 	SDL_Texture* CheckPoint;
 	SDL_Texture* GoalPoint;
+	SDL_Texture* GoalPointBar;
 	SDL_Texture* FireWork;
 
 	SDL_Texture* Coin;
@@ -206,6 +208,31 @@ struct GlobalState
 		int entityFPS;
 	} Entity;
 
+	Entity DownRightArrow_Entity; //To use in all levels
+	Entity UpRightArrow_Entity; //To use in all levels
+	Entity DownLeftArrow_Entity; //To use in all levels
+	Entity UpLeftArrow_Entity; //To use in all levels
+
+	Entity FuzzBall_Entity; //To use in level 2 (Turns ON a disturbing colorchanging effect on the top layer when collided)
+	Entity FlyingRedTurtle_Entity; //To use in all levels (Hides into shell when collided and falls)
+	Entity GreenTurtle1_Entity; //To use in level 1 (Hides into shell when collided and falls)
+	Entity GreenTurtle2_Entity; //To use in level 2 and 3 (Hides into shell when collided and falls)
+	Entity BrownGoomba_Entity; //To use in level 1 (Gets crushed when collided and falls)
+	Entity BlueGoomba_Entity; //To use in level 2 (Gets crushed when collided and falls)
+	Entity GreyGoomba_Entity; //To use in level 3 (Gets crushed when collided and falls)
+	Entity BuzzyBeetle_Entity; //To use in level 2 and 3 (Hides into shell when collided and falls)
+	Entity HammerBrother_Entity; //To use in level 3 (Throws hammers that kill the player and Falls when collided)
+	Entity Hammer_Entity; //To use in level 3 (Hammer thrown by HammerBrother that kills the player)
+
+	Entity CheckPoint_Entity; //To use in all levels (Appears at the level half)
+	Entity GoalPoint_Entity; //To use in all levels (Appears at the level end)
+	Entity GoalPointBar_Entity; //To use in all levels (Appears with the GoalPoint and is broken when player goes accross it)
+	Entity FireWork_Entity; //To use in all the level ends (appears once the level is finished)
+
+	Entity Coin_Entity; //To use in all levels (player collects it)
+	Entity QuestionBlock_Entity; //To use in all levels (player breaks it and collect a coin)
+	Entity BrickBlock_Entity; //To use in all levels (player breaks it)
+
 	//Tiles (interactive level things with player BUT NOT ANIMATED)
 
 	typedef struct Tile
@@ -242,7 +269,15 @@ struct GlobalState
 	Tile CaveWallUp; //To use in level 2
 	Tile SmallCaveWallDown; //To use in level 2
 	Tile CaveWallDown; //To use in level 2
+
+	Tile SmallCastleWallUp; //To use in level 3
+	Tile CastleWallUp; //To use in level 3
+	Tile SmallCastleWallDown; //To use in level 3
+	Tile CastleWallDown; //To use in level 3
+	Tile SmallCastleBlock; //To use in level 3
+	Tile CastleBlock; //To use in level 3
 	
+	Tile BulletLauncher; //To use in all level start
 
 	//Player
 	typedef struct Player
