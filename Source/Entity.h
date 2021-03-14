@@ -355,20 +355,20 @@ void BuzzyBeetle_MechanicsDefinition(GlobalState& state, int x, int y)
 	{
 		if ((state.BuzzyBeetle_Entity.entityFPS / 5) % 2 == 0)
 		{
-			state.BuzzyBeetle_Entity.entityFrame_x = 11; state.BuzzyBeetle_Entity.entityFrame_y = 210; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
+			state.BuzzyBeetle_Entity.entityFrame_x = 12; state.BuzzyBeetle_Entity.entityFrame_y = 237; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
 
 			state.BuzzyBeetle_Entity.entity_x = x; state.BuzzyBeetle_Entity.entity_y = y;
 		}
 		else
 		{
-			state.BuzzyBeetle_Entity.entityFrame_x = 28; state.BuzzyBeetle_Entity.entityFrame_y = 210; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
+			state.BuzzyBeetle_Entity.entityFrame_x = 29; state.BuzzyBeetle_Entity.entityFrame_y = 237; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
 
 			state.BuzzyBeetle_Entity.entity_x = x; state.BuzzyBeetle_Entity.entity_y = y;
 		}
 	}
 	if (state.BuzzyBeetle_Entity.entityLife == 0)
 	{
-		state.BuzzyBeetle_Entity.entityFrame_x = 96; state.BuzzyBeetle_Entity.entityFrame_y = 210; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
+		state.BuzzyBeetle_Entity.entityFrame_x = 96; state.BuzzyBeetle_Entity.entityFrame_y = 237; state.BuzzyBeetle_Entity.entityFrame_w = 16; state.BuzzyBeetle_Entity.entityFrame_h = 16;
 
 		state.BuzzyBeetle_Entity.entity_x = x; state.BuzzyBeetle_Entity.entity_y--;
 	}
@@ -385,6 +385,79 @@ void BuzzyBeetle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 	rec2.x = state.BuzzyBeetle_Entity.entityFrame_x; rec2.y = state.BuzzyBeetle_Entity.entityFrame_y; rec2.w = state.BuzzyBeetle_Entity.entityFrame_w; rec2.h = state.BuzzyBeetle_Entity.entityFrame_h;
 
 	SDL_RenderCopy(state.renderer, state.BuzzyBeetle, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
+
+void HammerBrother_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if (state.HammerBrother_Entity.entityLife == 1)
+	{
+		if ((state.HammerBrother_Entity.entityFPS / 5) % 2 == 0)
+		{
+			state.HammerBrother_Entity.entityFrame_x = 23; state.HammerBrother_Entity.entityFrame_y = 272; state.HammerBrother_Entity.entityFrame_w = 16; state.HammerBrother_Entity.entityFrame_h = 24;
+
+			state.HammerBrother_Entity.entity_x = x; state.HammerBrother_Entity.entity_y = y;
+		}
+		else
+		{
+			state.HammerBrother_Entity.entityFrame_x = 39; state.HammerBrother_Entity.entityFrame_y = 272; state.HammerBrother_Entity.entityFrame_w = 16; state.HammerBrother_Entity.entityFrame_h = 24;
+
+			state.HammerBrother_Entity.entity_x = x; state.HammerBrother_Entity.entity_y = y;
+		}
+		if ((state.HammerBrother_Entity.entityFPS / 60) % 2 == 0)
+		{
+			state.HammerBrother_Entity.entityFrame_x = 23; state.HammerBrother_Entity.entityFrame_y = 272; state.HammerBrother_Entity.entityFrame_w = 16; state.HammerBrother_Entity.entityFrame_h = 24;
+
+			state.HammerBrother_Entity.entity_x = x; state.HammerBrother_Entity.entity_y = y;
+		}
+	}
+	if (state.HammerBrother_Entity.entityLife == 0)
+	{
+		state.HammerBrother_Entity.entityFrame_x = 160; state.HammerBrother_Entity.entityFrame_y = 272; state.HammerBrother_Entity.entityFrame_w = 16; state.HammerBrother_Entity.entityFrame_h = 24;
+
+		state.HammerBrother_Entity.entity_x = x; state.HammerBrother_Entity.entity_y--;
+	}
+	if (state.HammerBrother_Entity.entityLife == 0 && state.HammerBrother_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.kick, 0);
+	}
+
+}
+
+void HammerBrother_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
+{
+	rec.x = state.HammerBrother_Entity.entity_x; rec.y = state.HammerBrother_Entity.entity_y; rec.w = state.HammerBrother_Entity.entityFrame_w * 4; rec.h = state.HammerBrother_Entity.entity_h * 4;
+	rec2.x = state.HammerBrother_Entity.entityFrame_x; rec2.y = state.HammerBrother_Entity.entityFrame_y; rec2.w = state.HammerBrother_Entity.entityFrame_w; rec2.h = state.HammerBrother_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.HammerBrother, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
+
+void Hammer_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if ((state.Hammer_Entity.entityFPS / 5) % 2 == 0)
+	{
+		state.Hammer_Entity.entityFrame_x = 76; state.Hammer_Entity.entityFrame_y = 280; state.Hammer_Entity.entityFrame_w = 16; state.Hammer_Entity.entityFrame_h = 16;
+
+		state.Hammer_Entity.entity_x = x; state.Hammer_Entity.entity_y--;
+	}
+	else
+	{
+		state.Hammer_Entity.entityFrame_x = 95; state.Hammer_Entity.entityFrame_y = 280; state.Hammer_Entity.entityFrame_w = 16; state.Hammer_Entity.entityFrame_h = 16;
+
+		state.Hammer_Entity.entity_x = x; state.Hammer_Entity.entity_y--;
+	}
+
+}
+
+void Hammer_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
+{
+	rec.x = state.Hammer_Entity.entity_x; rec.y = state.Hammer_Entity.entity_y; rec.w = state.Hammer_Entity.entityFrame_w * 4; rec.h = state.Hammer_Entity.entity_h * 4;
+	rec2.x = state.Hammer_Entity.entityFrame_x; rec2.y = state.Hammer_Entity.entityFrame_y; rec2.w = state.Hammer_Entity.entityFrame_w; rec2.h = state.Hammer_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.Hammer, &rec2, &rec);
 }
 
 //---------------------------------------------------------------------
