@@ -132,3 +132,51 @@ void FlyingRedTurtle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect r
 }
 
 //---------------------------------------------------------------------
+
+void GreenTurtle1_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if ((state.GreenTurtle1_Entity.entityFPS / 5) % 2 == 0)
+	{
+		state.GreenTurtle1_Entity.entityFrame_x = 11; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 24;
+	}
+	else
+	{
+		state.GreenTurtle1_Entity.entityFrame_x = 28; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 24;
+	}
+
+	state.GreenTurtle1_Entity.entity_x = x; state.GreenTurtle1_Entity.entity_y = y;
+}
+
+void GreenTurtle1_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+{
+	rec.x = state.GreenTurtle1_Entity.entity_x; rec.y = state.GreenTurtle1_Entity.entity_y; rec.w = state.GreenTurtle1_Entity.entityFrame_w * 4; rec.h = state.GreenTurtle1_Entity.entity_h * 4;
+	rec2.x = state.GreenTurtle1_Entity.entityFrame_x; rec2.y = state.GreenTurtle1_Entity.entityFrame_y; rec2.w = state.GreenTurtle1_Entity.entityFrame_w; rec2.h = state.GreenTurtle1_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.GreenTurtle1, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
+
+void GreenTurtle2_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if ((state.GreenTurtle2_Entity.entityFPS / 5) % 2 == 0)
+	{
+		state.GreenTurtle2_Entity.entityFrame_x = 11; state.GreenTurtle2_Entity.entityFrame_y = 122; state.GreenTurtle2_Entity.entityFrame_w = 17; state.GreenTurtle2_Entity.entityFrame_h = 24;
+	}
+	else
+	{
+		state.GreenTurtle2_Entity.entityFrame_x = 28; state.GreenTurtle2_Entity.entityFrame_y = 122; state.GreenTurtle2_Entity.entityFrame_w = 17; state.GreenTurtle2_Entity.entityFrame_h = 24;
+	}
+
+	state.GreenTurtle2_Entity.entity_x = x; state.GreenTurtle2_Entity.entity_y = y;
+}
+
+void GreenTurtle2_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+{
+	rec.x = state.GreenTurtle2_Entity.entity_x; rec.y = state.GreenTurtle2_Entity.entity_y; rec.w = state.GreenTurtle2_Entity.entityFrame_w * 4; rec.h = state.GreenTurtle2_Entity.entity_h * 4;
+	rec2.x = state.GreenTurtle2_Entity.entityFrame_x; rec2.y = state.GreenTurtle2_Entity.entityFrame_y; rec2.w = state.GreenTurtle2_Entity.entityFrame_w; rec2.h = state.GreenTurtle2_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.GreenTurtle1and2, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
