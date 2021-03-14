@@ -231,7 +231,7 @@ void FlyingRedTurtle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect r
 
 void GreenTurtle1_MechanicsDefinition(GlobalState& state, int x, int y)
 {
-	if (state.FlyingRedTurtle_Entity.entityLife == 1)
+	if (state.GreenTurtle1_Entity.entityLife == 1)
 	{
 		if ((state.GreenTurtle1_Entity.entityFPS / 5) % 2 == 0)
 		{
@@ -246,13 +246,13 @@ void GreenTurtle1_MechanicsDefinition(GlobalState& state, int x, int y)
 			state.GreenTurtle1_Entity.entity_x = x; state.GreenTurtle1_Entity.entity_y = y;
 		}
 	}
-	if (state.FlyingRedTurtle_Entity.entityLife == 0)
+	if (state.GreenTurtle1_Entity.entityLife == 0)
 	{
-		state.GreenTurtle1_Entity.entityFrame_x = 28; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 17;
+		state.GreenTurtle1_Entity.entityFrame_x = 96; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 17;
 
 		state.GreenTurtle1_Entity.entity_x = x; state.GreenTurtle1_Entity.entity_y--;
 	}
-	if (state.FlyingRedTurtle_Entity.entityLife == 0 && state.FlyingRedTurtle_Entity.entityFPS < 1)
+	if (state.GreenTurtle1_Entity.entityLife == 0 && state.GreenTurtle1_Entity.entityFPS < 1)
 	{
 		Mix_PlayChannel(-1, state.kick, 0);
 	}
@@ -269,3 +269,82 @@ void GreenTurtle1_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2
 
 //---------------------------------------------------------------------
 
+void BlueGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if (state.BlueGoomba_Entity.entityLife == 1)
+	{
+		if ((state.BlueGoomba_Entity.entityFPS / 5) % 2 == 0)
+		{
+			state.BlueGoomba_Entity.entityFrame_x = 11; state.BlueGoomba_Entity.entityFrame_y = 186; state.BlueGoomba_Entity.entityFrame_w = 16; state.BlueGoomba_Entity.entityFrame_h = 16;
+
+			state.BlueGoomba_Entity.entity_x = x; state.BlueGoomba_Entity.entity_y = y;
+		}
+		else
+		{
+			state.BlueGoomba_Entity.entityFrame_x = 28; state.BlueGoomba_Entity.entityFrame_y = 186; state.BlueGoomba_Entity.entityFrame_w = 16; state.BlueGoomba_Entity.entityFrame_h = 16;
+
+			state.BlueGoomba_Entity.entity_x = x; state.BlueGoomba_Entity.entity_y = y;
+		}
+	}
+	if (state.BlueGoomba_Entity.entityLife == 0)
+	{
+		state.BlueGoomba_Entity.entityFrame_x = 96; state.BlueGoomba_Entity.entityFrame_y = 186; state.BlueGoomba_Entity.entityFrame_w = 16; state.BlueGoomba_Entity.entityFrame_h = 16;
+
+		state.BlueGoomba_Entity.entity_x = x; state.BlueGoomba_Entity.entity_y--;
+	}
+	if (state.BlueGoomba_Entity.entityLife == 0 && state.BlueGoomba_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.kick, 0);
+	}
+
+}
+
+void BlueGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+{
+	rec.x = state.BlueGoomba_Entity.entity_x; rec.y = state.BlueGoomba_Entity.entity_y; rec.w = state.BlueGoomba_Entity.entityFrame_w * 4; rec.h = state.BlueGoomba_Entity.entity_h * 4;
+	rec2.x = state.BlueGoomba_Entity.entityFrame_x; rec2.y = state.BlueGoomba_Entity.entityFrame_y; rec2.w = state.BlueGoomba_Entity.entityFrame_w; rec2.h = state.BlueGoomba_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.BlueGoomba, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
+
+void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if (state.GreyGoomba_Entity.entityLife == 1)
+	{
+		if ((state.GreyGoomba_Entity.entityFPS / 5) % 2 == 0)
+		{
+			state.GreyGoomba_Entity.entityFrame_x = 11; state.GreyGoomba_Entity.entityFrame_y = 210; state.GreyGoomba_Entity.entityFrame_w = 16; state.GreyGoomba_Entity.entityFrame_h = 16;
+
+			state.GreyGoomba_Entity.entity_x = x; state.GreyGoomba_Entity.entity_y = y;
+		}
+		else
+		{
+			state.GreyGoomba_Entity.entityFrame_x = 28; state.GreyGoomba_Entity.entityFrame_y = 210; state.GreyGoomba_Entity.entityFrame_w = 16; state.GreyGoomba_Entity.entityFrame_h = 16;
+
+			state.GreyGoomba_Entity.entity_x = x; state.GreyGoomba_Entity.entity_y = y;
+		}
+	}
+	if (state.GreyGoomba_Entity.entityLife == 0)
+	{
+		state.GreyGoomba_Entity.entityFrame_x = 96; state.GreyGoomba_Entity.entityFrame_y = 210; state.GreyGoomba_Entity.entityFrame_w = 16; state.GreyGoomba_Entity.entityFrame_h = 16;
+
+		state.GreyGoomba_Entity.entity_x = x; state.GreyGoomba_Entity.entity_y--;
+	}
+	if (state.GreyGoomba_Entity.entityLife == 0 && state.GreyGoomba_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.kick, 0);
+	}
+
+}
+
+void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
+{
+	rec.x = state.GreyGoomba_Entity.entity_x; rec.y = state.GreyGoomba_Entity.entity_y; rec.w = state.GreyGoomba_Entity.entityFrame_w * 4; rec.h = state.GreyGoomba_Entity.entity_h * 4;
+	rec2.x = state.GreyGoomba_Entity.entityFrame_x; rec2.y = state.GreyGoomba_Entity.entityFrame_y; rec2.w = state.GreyGoomba_Entity.entityFrame_w; rec2.h = state.GreyGoomba_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.GreyGoomba, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------
