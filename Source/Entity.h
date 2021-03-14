@@ -308,7 +308,7 @@ void BlueGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 
 //---------------------------------------------------------------------
 
-void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
+void GreyGoomba_MechanicsDefinition(GlobalState& state, int &x, int &y)
 {
 	if (state.GreyGoomba_Entity.entityLife == 1)
 	{
@@ -388,6 +388,8 @@ void BuzzyBeetle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 
 //---------------------------------------------------------------------
 
+void Hammer_MechanicsDefinition(GlobalState& state, int x, int y);
+
 void HammerBrother_MechanicsDefinition(GlobalState& state, int x, int y)
 {
 	if (state.HammerBrother_Entity.entityLife == 1)
@@ -406,7 +408,7 @@ void HammerBrother_MechanicsDefinition(GlobalState& state, int x, int y)
 		}
 		if ((state.HammerBrother_Entity.entityFPS / 60) % 2 == 0)
 		{
-			//Hammer_MechanicsDefinition(state, state.Hammer_Entity.entity_x, state.Hammer_Entity.entity_y);
+			Hammer_MechanicsDefinition(state, state.Hammer_Entity.entity_x, state.Hammer_Entity.entity_y);
 
 			state.HammerBrother_Entity.entityFrame_x = 23; state.HammerBrother_Entity.entityFrame_y = 272; state.HammerBrother_Entity.entityFrame_w = 16; state.HammerBrother_Entity.entityFrame_h = 24;
 
