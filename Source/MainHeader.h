@@ -147,6 +147,8 @@ struct GlobalState
 	SDL_Texture* QuestionBlock;
 	SDL_Texture* BrickBlock;
 
+	SDL_Texture* BossShot;
+
 	int background_width;
 
 	// Audio variables
@@ -236,6 +238,8 @@ struct GlobalState
 	Entity Coin_Entity; //To use in all levels (player collects it)
 	Entity QuestionBlock_Entity; //To use in all levels (player breaks it and collect a coin)
 	Entity BrickBlock_Entity; //To use in all levels (player breaks it)
+
+	Entity BossShot_Entity; //To use in level 3 (the boss shoots it)
 
 	//Tiles (interactive level things with player BUT NOT ANIMATED)
 
