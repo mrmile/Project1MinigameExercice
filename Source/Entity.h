@@ -43,9 +43,23 @@ void DownRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect re
 
 void UpRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 {
-	state.UpRightArrow_Entity.entityFrame_x = 76; state.UpRightArrow_Entity.entityFrame_y = 8; state.UpRightArrow_Entity.entityFrame_w = 20; state.UpRightArrow_Entity.entityFrame_h = 44;
+	if (state.DownRightArrow_Entity.entityLife == 1)
+	{
+		state.UpRightArrow_Entity.entityFrame_x = 76; state.UpRightArrow_Entity.entityFrame_y = 8; state.UpRightArrow_Entity.entityFrame_w = 20; state.UpRightArrow_Entity.entityFrame_h = 44;
 
-	state.UpRightArrow_Entity.entity_x = x; state.UpRightArrow_Entity.entity_y = y;
+		state.UpRightArrow_Entity.entity_x = x; state.UpRightArrow_Entity.entity_y = y;
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0)
+	{
+		state.UpRightArrow_Entity.entityFrame_x = 76; state.UpRightArrow_Entity.entityFrame_y = 33; state.UpRightArrow_Entity.entityFrame_w = 20; state.UpRightArrow_Entity.entityFrame_h = 44;
+
+		state.UpRightArrow_Entity.entity_x = x; state.UpRightArrow_Entity.entity_y = y;
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0 && state.DownRightArrow_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.clap, 0);
+	}
+	
 }
 
 void UpRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
@@ -60,9 +74,22 @@ void UpRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2
 
 void DownLeftArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 {
-	state.DownLeftArrow_Entity.entityFrame_x = 104; state.DownLeftArrow_Entity.entityFrame_y = 8; state.DownLeftArrow_Entity.entityFrame_w = 20; state.DownLeftArrow_Entity.entityFrame_h = 46;
+	if (state.DownRightArrow_Entity.entityLife == 1)
+	{
+		state.DownLeftArrow_Entity.entityFrame_x = 104; state.DownLeftArrow_Entity.entityFrame_y = 8; state.DownLeftArrow_Entity.entityFrame_w = 20; state.DownLeftArrow_Entity.entityFrame_h = 46;
 
-	state.DownLeftArrow_Entity.entity_x = x; state.DownLeftArrow_Entity.entity_y = y;
+		state.DownLeftArrow_Entity.entity_x = x; state.DownLeftArrow_Entity.entity_y = y;
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0)
+	{
+		state.DownLeftArrow_Entity.entityFrame_x = 104; state.DownLeftArrow_Entity.entityFrame_y = 33; state.DownLeftArrow_Entity.entityFrame_w = 20; state.DownLeftArrow_Entity.entityFrame_h = 46;
+
+		state.DownLeftArrow_Entity.entity_x = x; state.DownLeftArrow_Entity.entity_y = y;
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0 && state.DownRightArrow_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.clap, 0);
+	}
 }
 
 void DownLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
@@ -77,17 +104,39 @@ void DownLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec
 
 void UpLeftArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 {
-	state.UpLeftArrow_Entity.entityFrame_x = 136; state.UpLeftArrow_Entity.entityFrame_y = 8; state.UpLeftArrow_Entity.entityFrame_w = 20; state.UpLeftArrow_Entity.entityFrame_h = 44;
+	
+	if (state.DownRightArrow_Entity.entityLife == 1)
+	{
+		state.UpLeftArrow_Entity.entityFrame_x = 136; state.UpLeftArrow_Entity.entityFrame_y = 8; state.UpLeftArrow_Entity.entityFrame_w = 20; state.UpLeftArrow_Entity.entityFrame_h = 44;
 
-	state.UpLeftArrow_Entity.entity_x = x; state.UpLeftArrow_Entity.entity_y = y;
+		state.UpLeftArrow_Entity.entity_x = x; state.UpLeftArrow_Entity.entity_y = y;
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0)
+	{
+		state.UpLeftArrow_Entity.entityFrame_x = 136; state.UpLeftArrow_Entity.entityFrame_y = 33; state.UpLeftArrow_Entity.entityFrame_w = 20; state.UpLeftArrow_Entity.entityFrame_h = 44;
+
+		state.UpLeftArrow_Entity.entity_x = x; state.UpLeftArrow_Entity.entity_y = y;
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0 && state.DownRightArrow_Entity.entityFPS < 1)
+	{
+		Mix_PlayChannel(-1, state.clap, 0);
+	}
 }
 
 void UpLeftArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
 {
-	rec.x = state.UpLeftArrow_Entity.entity_x; rec.y = state.UpLeftArrow_Entity.entity_y; rec.w = state.UpLeftArrow_Entity.entity_w * 4; rec.h = state.UpLeftArrow_Entity.entity_h * 4;
-	rec2.x = state.UpLeftArrow_Entity.entityFrame_x; rec2.y = state.UpLeftArrow_Entity.entityFrame_y; rec2.w = state.UpLeftArrow_Entity.entityFrame_w; rec2.h = state.UpLeftArrow_Entity.entityFrame_h;
+	
+	if (state.DownRightArrow_Entity.entityLife == 1)
+	{
+		rec.x = state.UpLeftArrow_Entity.entity_x; rec.y = state.UpLeftArrow_Entity.entity_y; rec.w = state.UpLeftArrow_Entity.entity_w * 4; rec.h = state.UpLeftArrow_Entity.entity_h * 4;
+		rec2.x = state.UpLeftArrow_Entity.entityFrame_x; rec2.y = state.UpLeftArrow_Entity.entityFrame_y; rec2.w = state.UpLeftArrow_Entity.entityFrame_w; rec2.h = state.UpLeftArrow_Entity.entityFrame_h;
 
-	SDL_RenderCopy(state.renderer, state.UpLeftArrow, &rec2, &rec);
+		SDL_RenderCopy(state.renderer, state.UpLeftArrow, &rec2, &rec);
+	}
+	if (state.DownRightArrow_Entity.entityLife == 0)
+	{
+
+	}
 }
 
 //---------------------------------------------------------------------
