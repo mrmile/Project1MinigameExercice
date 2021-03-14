@@ -22,7 +22,7 @@ void DownRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	{
 		state.DownRightArrow_Entity.entityFrame_x = 52; state.DownRightArrow_Entity.entityFrame_y = 33; state.DownRightArrow_Entity.entityFrame_w = 20; state.DownRightArrow_Entity.entityFrame_h = 44;
 
-		state.DownRightArrow_Entity.entity_y--;
+		state.UpRightArrow_Entity.entity_x = x; state.DownRightArrow_Entity.entity_y--;
 	}
 	if (state.DownRightArrow_Entity.entityLife == 0 && state.DownRightArrow_Entity.entityFPS < 1)
 	{
@@ -53,7 +53,7 @@ void UpRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	{
 		state.UpRightArrow_Entity.entityFrame_x = 76; state.UpRightArrow_Entity.entityFrame_y = 33; state.UpRightArrow_Entity.entityFrame_w = 20; state.UpRightArrow_Entity.entityFrame_h = 44;
 
-		state.UpRightArrow_Entity.entity_x = x; state.UpRightArrow_Entity.entity_y = y;
+		state.UpRightArrow_Entity.entity_x = x; state.UpRightArrow_Entity.entity_y--;
 	}
 	if (state.UpRightArrow_Entity.entityLife == 0 && state.UpRightArrow_Entity.entityFPS < 1)
 	{
@@ -84,7 +84,7 @@ void DownLeftArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	{
 		state.DownLeftArrow_Entity.entityFrame_x = 104; state.DownLeftArrow_Entity.entityFrame_y = 33; state.DownLeftArrow_Entity.entityFrame_w = 20; state.DownLeftArrow_Entity.entityFrame_h = 46;
 
-		state.DownLeftArrow_Entity.entity_x = x; state.DownLeftArrow_Entity.entity_y = y;
+		state.DownLeftArrow_Entity.entity_x = x; state.DownLeftArrow_Entity.entity_y--;
 	}
 	if (state.DownLeftArrow_Entity.entityLife == 0 && state.DownLeftArrow_Entity.entityFPS < 1)
 	{
@@ -115,7 +115,7 @@ void UpLeftArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	{
 		state.UpLeftArrow_Entity.entityFrame_x = 136; state.UpLeftArrow_Entity.entityFrame_y = 33; state.UpLeftArrow_Entity.entityFrame_w = 20; state.UpLeftArrow_Entity.entityFrame_h = 44;
 
-		state.UpLeftArrow_Entity.entity_x = x; state.UpLeftArrow_Entity.entity_y = y;
+		state.UpLeftArrow_Entity.entity_x = x; state.UpLeftArrow_Entity.entity_y--;
 	}
 	if (state.UpLeftArrow_Entity.entityLife == 0 && state.UpLeftArrow_Entity.entityFPS < 1)
 	{
@@ -156,7 +156,12 @@ void FuzzBall_MechanicsDefinition(GlobalState& state, int x, int y)
 
 			state.FuzzBall_Entity.entity_x = x; state.FuzzBall_Entity.entity_y = y;
 		}
-		
+		if (state.FuzzBall_Entity.entityFPS > 300)
+		{
+			state.FuzzBall_Entity.entityFrame_x = 420; state.FuzzBall_Entity.entityFrame_y = 12; state.FuzzBall_Entity.entityFrame_w = 0; state.FuzzBall_Entity.entityFrame_h = 0;
+
+			state.FuzzBall_Entity.entity_x = x; state.FuzzBall_Entity.entity_y = y;
+		}
 	}
 	if (state.FuzzBall_Entity.entityLife == 0 && state.FuzzBall_Entity.entityFPS < 1)
 	{
@@ -185,13 +190,24 @@ void FuzzBall_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, in
 
 void FlyingRedTurtle_MechanicsDefinition(GlobalState& state, int x, int y)
 {
-	if ((state.FlyingRedTurtle_Entity.entityFPS / 5) % 2 == 0)
+	if (state.FlyingRedTurtle_Entity.entityLife == 1)
+	{
+		if ((state.FlyingRedTurtle_Entity.entityFPS / 5) % 2 == 0)
+		{
+			state.FlyingRedTurtle_Entity.entityFrame_x = 11; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+		}
+		else
+		{
+			state.FlyingRedTurtle_Entity.entityFrame_x = 28; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+		}
+	}
+	if (state.FlyingRedTurtle_Entity.entityLife == 0)
 	{
 		state.FlyingRedTurtle_Entity.entityFrame_x = 11; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
 	}
-	else
+	if (state.FlyingRedTurtle_Entity.entityLife == 0 && state.FlyingRedTurtle_Entity.entityFPS < 1)
 	{
-		state.FlyingRedTurtle_Entity.entityFrame_x = 28; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+		Mix_PlayChannel(-1, state.kick, 0);
 	}
 
 	state.FlyingRedTurtle_Entity.entity_x = x; state.FlyingRedTurtle_Entity.entity_y = y;
