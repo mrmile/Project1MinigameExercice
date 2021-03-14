@@ -59,6 +59,7 @@ void Start()
 	state.player = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.boss = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/BossSpriteSheet.png"));
+	state.bossShot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/BossSpriteSheet.png"));
 
 	state.fuzzBall = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.DownRightArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));

@@ -463,3 +463,30 @@ void Hammer_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 }
 
 //---------------------------------------------------------------------
+
+void CheckPoint_MechanicsDefinition(GlobalState& state, int x, int y)
+{
+	if ((state.CheckPoint_Entity.entityFPS / 5) % 2 == 0)
+	{
+		state.CheckPoint_Entity.entityFrame_x = 76; state.CheckPoint_Entity.entityFrame_y = 280; state.CheckPoint_Entity.entityFrame_w = 16; state.CheckPoint_Entity.entityFrame_h = 16;
+
+		state.CheckPoint_Entity.entity_x = x; state.CheckPoint_Entity.entity_y--;
+	}
+	else
+	{
+		state.CheckPoint_Entity.entityFrame_x = 95; state.CheckPoint_Entity.entityFrame_y = 280; state.CheckPoint_Entity.entityFrame_w = 16; state.CheckPoint_Entity.entityFrame_h = 16;
+
+		state.CheckPoint_Entity.entity_x = x; state.CheckPoint_Entity.entity_y--;
+	}
+
+}
+
+void CheckPoint_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
+{
+	rec.x = state.CheckPoint_Entity.entity_x; rec.y = state.CheckPoint_Entity.entity_y; rec.w = state.CheckPoint_Entity.entityFrame_w * 4; rec.h = state.CheckPoint_Entity.entity_h * 4;
+	rec2.x = state.CheckPoint_Entity.entityFrame_x; rec2.y = state.CheckPoint_Entity.entityFrame_y; rec2.w = state.CheckPoint_Entity.entityFrame_w; rec2.h = state.CheckPoint_Entity.entityFrame_h;
+
+	SDL_RenderCopy(state.renderer, state.CheckPoint, &rec2, &rec);
+}
+
+//---------------------------------------------------------------------

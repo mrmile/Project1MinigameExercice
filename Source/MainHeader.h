@@ -118,6 +118,7 @@ struct GlobalState
 
 	SDL_Texture* player;
 	SDL_Texture* boss;
+	SDL_Texture* bossShot;
 	SDL_Texture* shot;
 
 	SDL_Texture* fuzzBall;
