@@ -54,14 +54,10 @@ void Start()
 	state.background1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/clouds.png"));
 	state.background2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/cave.png"));
 	state.background3 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/castle.png"));
-	state.TitleScreen1 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/TitleScreen1.png"));
-	state.TitleScreen2 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/TitleScreen2.png"));
-	state.TitleScreen3 = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/TitleScreen3.png"));
 
 	state.player = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.shot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.boss = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/BossSpriteSheet.png"));
-	state.BossShot = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/BossSpriteSheet.png"));
 
 	state.fuzzBall = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
 	state.DownRightArrow = SDL_CreateTextureFromSurface(state.renderer, IMG_Load("Assets/GeneralSpriteSheet.png"));
@@ -90,12 +86,6 @@ void Start()
 	SDL_QueryTexture(state.background1, NULL, NULL, &state.background_width, NULL);
 	SDL_QueryTexture(state.background2, NULL, NULL, &state.background_width, NULL);
 	SDL_QueryTexture(state.background3, NULL, NULL, &state.background_width, NULL);
-
-	SDL_QueryTexture(state.TitleScreen1, NULL, NULL, &state.background_width, NULL);
-	SDL_QueryTexture(state.TitleScreen2, NULL, NULL, &state.background_width, NULL);
-	SDL_QueryTexture(state.TitleScreen1, NULL, NULL, &state.background_width, NULL);
-
-	
 
 	// L4: TODO 1: Init audio system and load music/fx
 	Mix_Init(MIX_INIT_FLAC | MIX_INIT_MOD | MIX_INIT_MP3 | MIX_INIT_OGG);
@@ -160,9 +150,6 @@ void Finish()
 	SDL_DestroyTexture(state.background1);
 	SDL_DestroyTexture(state.background2);
 	SDL_DestroyTexture(state.background3);
-	SDL_DestroyTexture(state.TitleScreen1);
-	SDL_DestroyTexture(state.TitleScreen2);
-	SDL_DestroyTexture(state.TitleScreen3);
 	SDL_DestroyTexture(state.player);
 	SDL_DestroyTexture(state.shot);
 	SDL_DestroyTexture(state.boss);
@@ -310,11 +297,6 @@ bool CheckInput()
 	// L2: DONE 6: Check ESCAPE key pressed to finish the game
 	if (state.keyboard[SDL_SCANCODE_ESCAPE] == KEY_DOWN) return false;
 
-	
-	
-
-
-
 	// Check QUIT window event to finish the game
 	if (state.window_events[WE_QUIT] == true) return false;
 
@@ -334,7 +316,6 @@ void MoveStuff()
 		{
 			state.GeneralFPS++;
 			TitleScreenMechanicsDefinition(state);
-			
 			
 			break;
 		}
@@ -404,7 +385,6 @@ void Draw()
 	// NOTE: rec rectangle is being reused for next draws
 	SDL_Rect rec = { -state.scroll, 0, state.background_width, SCREEN_HEIGHT };
 	SDL_Rect rec2 = { state.bullet.playerFrame_x, state.bullet.playerFrame_y, state.bullet.playerFrame_w, state.bullet.playerFrame_h };
-	
 
 	
 

@@ -20,7 +20,7 @@ void DownRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	}
 	if (state.DownRightArrow_Entity.entityLife == 0)
 	{
-		state.DownRightArrow_Entity.entityFrame_x = 52; state.DownRightArrow_Entity.entityFrame_y = 33; state.DownRightArrow_Entity.entityFrame_w = 20; state.DownRightArrow_Entity.entityFrame_h = 19;
+		state.DownRightArrow_Entity.entityFrame_x = 52; state.DownRightArrow_Entity.entityFrame_y = 33; state.DownRightArrow_Entity.entityFrame_w = 20; state.DownRightArrow_Entity.entityFrame_h = 44;
 
 		state.DownRightArrow_Entity.entity_y--;
 	}
@@ -28,7 +28,7 @@ void DownRightArrow_MechanicsDefinition(GlobalState& state, int x, int y)
 	{
 		Mix_PlayChannel(-1, state.clap, 0);
 	}
-	
+
 }
 
 void DownRightArrow_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
