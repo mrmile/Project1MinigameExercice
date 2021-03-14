@@ -308,7 +308,7 @@ void BlueGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 
 //---------------------------------------------------------------------
 
-void GreyGoomba_MechanicsDefinition(GlobalState& state, int &x, int &y)
+void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
 {
 	if (state.GreyGoomba_Entity.entityLife == 1)
 	{
