@@ -310,6 +310,12 @@ void BlueGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
 
 void GreyGoomba_MechanicsDefinition(GlobalState& state, int x, int y)
 {
+	if (state.GreyGoomba_Entity.entityFPS < 1)
+	{
+		state.GreyGoomba_Entity.entityLife == 1;
+	}
+	state.GreyGoomba_Entity.entityFPS++;
+
 	if (state.GreyGoomba_Entity.entityLife == 1)
 	{
 		if ((state.GreyGoomba_Entity.entityFPS / 5) % 2 == 0)

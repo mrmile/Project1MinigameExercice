@@ -13,7 +13,7 @@ void GreyGoomba_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2);
 void Level_3MechanicsDefinition(GlobalState& state)
 {
 	BossMechanicsDefinition(state);
-	GreyGoomba_MechanicsDefinition(state, 0, 0);
+	GreyGoomba_MechanicsDefinition(state, 1290 - SCROLL_SPEED, 200);
 }
 
 void Level_3DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2)
