@@ -195,15 +195,21 @@ void FlyingRedTurtle_MechanicsDefinition(GlobalState& state, int x, int y)
 		if ((state.FlyingRedTurtle_Entity.entityFPS / 5) % 2 == 0)
 		{
 			state.FlyingRedTurtle_Entity.entityFrame_x = 11; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+
+			state.FlyingRedTurtle_Entity.entity_x = x; state.FlyingRedTurtle_Entity.entity_y = y;
 		}
 		else
 		{
-			state.FlyingRedTurtle_Entity.entityFrame_x = 28; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+			state.FlyingRedTurtle_Entity.entityFrame_x = 28; state.FlyingRedTurtle_Entity.entityFrame_y = 64; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+
+			state.FlyingRedTurtle_Entity.entity_x = x; state.FlyingRedTurtle_Entity.entity_y = y;
 		}
 	}
 	if (state.FlyingRedTurtle_Entity.entityLife == 0)
 	{
-		state.FlyingRedTurtle_Entity.entityFrame_x = 11; state.FlyingRedTurtle_Entity.entityFrame_y = 65; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 24;
+		state.FlyingRedTurtle_Entity.entityFrame_x = 96; state.FlyingRedTurtle_Entity.entityFrame_y = 72; state.FlyingRedTurtle_Entity.entityFrame_w = 17; state.FlyingRedTurtle_Entity.entityFrame_h = 17;
+
+		state.FlyingRedTurtle_Entity.entity_x = x; state.FlyingRedTurtle_Entity.entity_y--;
 	}
 	if (state.FlyingRedTurtle_Entity.entityLife == 0 && state.FlyingRedTurtle_Entity.entityFPS < 1)
 	{
@@ -221,20 +227,28 @@ void FlyingRedTurtle_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect r
 	SDL_RenderCopy(state.renderer, state.FlyingRedTurtle, &rec2, &rec);
 }
 
-//---------------------------------------------------------------------
+//---------------------------------------------------------------------A partir de aquí no está terminado
 
 void GreenTurtle1_MechanicsDefinition(GlobalState& state, int x, int y)
 {
-	if ((state.GreenTurtle1_Entity.entityFPS / 5) % 2 == 0)
+	if (state.FlyingRedTurtle_Entity.entityLife == 1)
 	{
-		state.GreenTurtle1_Entity.entityFrame_x = 11; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 24;
-	}
-	else
-	{
-		state.GreenTurtle1_Entity.entityFrame_x = 28; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 24;
-	}
+		if ((state.GreenTurtle1_Entity.entityFPS / 5) % 2 == 0)
+		{
+			state.GreenTurtle1_Entity.entityFrame_x = 11; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 24;
 
-	state.GreenTurtle1_Entity.entity_x = x; state.GreenTurtle1_Entity.entity_y = y;
+			state.GreenTurtle1_Entity.entity_x = x; state.GreenTurtle1_Entity.entity_y = y;
+		}
+		else
+		{
+			state.GreenTurtle1_Entity.entityFrame_x = 28; state.GreenTurtle1_Entity.entityFrame_y = 93; state.GreenTurtle1_Entity.entityFrame_w = 17; state.GreenTurtle1_Entity.entityFrame_h = 24;
+
+			state.GreenTurtle1_Entity.entity_x = x; state.GreenTurtle1_Entity.entity_y = y;
+		}
+	}
+	
+
+	
 }
 
 void GreenTurtle1_DrawDefinition(GlobalState& state, SDL_Rect rec, SDL_Rect rec2, int x, int y)
