@@ -1,4 +1,4 @@
-# DeltaSquad MinigameExercise
+# DeltaSquad_MinigameExercise
 
 ## Description
 
