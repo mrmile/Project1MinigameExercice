@@ -1,1 +1,1 @@
-# Project1MinigameExercice
+# Project1DeltaSquadMinigameExercice
