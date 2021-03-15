@@ -12,7 +12,7 @@ A small minigame done to practice with SDL
 ## Controls
 
  - Arrow keys for movement
- - SpaceBar for shotting
+ - SpaceBar for shootting
 
 ## Developers
 
